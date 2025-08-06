@@ -1,6 +1,7 @@
-## Product Configuration 
+## Product Configuration
 
 ### Request a Product Configuration
+
 ```py
 
 accountId = "acc_GP4lfNA0iIMn5B"
@@ -14,13 +15,14 @@ client.product.requestProductConfiguration(accountId, {
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| product_name* | string   | The product(s) to be configured. Possible value is `payment_gateway`, `payment_links`  |
-| tnc_accepted        | boolean      | Pass this parameter to accept terms and conditions. Send this parameter along with the ip parameter when the tnc is accepted. Possible values is `true`  |
-| ip          | integer      | The IP address of the merchant while accepting the terms and conditions. Send this parameter along with the `tnc_accepted` parameter when the `tnc` is accepted.  |
+| Name           | Type    | Description                                                                                                                                                      |
+| -------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| product_name\* | string  | The product(s) to be configured. Possible value is `payment_gateway`, `payment_links`                                                                            |
+| tnc_accepted   | boolean | Pass this parameter to accept terms and conditions. Send this parameter along with the ip parameter when the tnc is accepted. Possible values is `true`          |
+| ip             | integer | The IP address of the merchant while accepting the terms and conditions. Send this parameter along with the `tnc_accepted` parameter when the `tnc` is accepted. |
 
 **Response:**
+
 ```json
 {
   "requested_configuration": {
@@ -48,9 +50,7 @@ client.product.requestProductConfiguration(accountId, {
     "notifications": {
       "whatsapp": true,
       "sms": false,
-      "email": [
-        "b963e252-1201-45b0-9c39-c53eceb0cfd6_load@gmail.com"
-      ]
+      "email": ["b963e252-1201-45b0-9c39-c53eceb0cfd6_load@gmail.com"]
     },
     "payment_methods": {
       "netbanking": {
@@ -58,14 +58,7 @@ client.product.requestProductConfiguration(accountId, {
         "instrument": [
           {
             "type": "retail",
-            "bank": [
-              "hdfc",
-              "sbin",
-              "utib",
-              "icic",
-              "scbl",
-              "yesb"
-            ]
+            "bank": ["hdfc", "sbin", "utib", "icic", "scbl", "yesb"]
           }
         ]
       },
@@ -82,9 +75,7 @@ client.product.requestProductConfiguration(accountId, {
       },
       "upi": {
         "enabled": true,
-        "instrument": [
-          "upi"
-        ]
+        "instrument": ["upi"]
       }
     }
   },
@@ -150,7 +141,7 @@ client.product.requestProductConfiguration(accountId, {
       "reason_code": "field_missing"
     }
   ],
-  "tnc":{
+  "tnc": {
     "id": "tnc_IgohZaDBHRGjPv",
     "accepted": true,
     "accepted_at": 1641550798
@@ -163,9 +154,10 @@ client.product.requestProductConfiguration(accountId, {
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Edit a Product Configuration
+
 ```py
 accountId = "acc_GP4lfNA0iIMn5B"
 productId = "acc_prd_HEgNpywUFctQ9e"
@@ -195,27 +187,28 @@ client.product.edit(accountId, productId, {
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| notifications          | object      | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported | 
-| checkout      | object      | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported | 
-| refund | object      | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported | 
-| settlements         | object      | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported |         
-| tnc_accepted         | boolean      |  Pass this parameter to accept terms and conditions. Send this parameter along with the ip parameter when the tnc is accepted. Possible value is `true` |
-| ip         | string      | The IP address of the merchant while accepting the terms and conditions. Send this parameter along with the tnc_accepted parameter when the `tnc` is accepted. |
-| payment_methods | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported | 
-| type | string  | Possible value is `domestic` |
-| issuer | string  | The card issuer. Possible values for issuer are `amex`, `dicl`, `maestro`, `mastercard`, `rupay`, `visa`. |     
-| wallet | object  | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported |   
-| instrument(wallet) | string  | The wallet issuer. Possible values are `airtelmoney`, `amazonpay`, `freecharge`, `jiomoney`, `mobiwik`, `mpesa`, `olamoney`, `paytm`, `payzapp`, `payumoney`, `phonepe`, `phonepeswitch`, `sbibuddy` |  
-| instrument(wallet) | string  | The wallet issuer. Possible values are `airtelmoney`, `amazonpay`, `freecharge`, `jiomoney`, `mobiwik`, `mpesa`, `olamoney`, `paytm`, `payzapp`, `payumoney`, `phonepe`, `phonepeswitch`, `sbibuddy` | 
-| upi | object  | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported |  
-| instrument(upi) | string  | The UPI service provider. Possible values are `google_pay`, `upi`| 
-| paylater | object  | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported |  
-| instrument(emi) | string  | The Paylater service provider. Possible values are `epaylater`, `getsimpl`| 
-| emi | object  | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported |        
+| Name               | Type                                                                                                                               | Description                                                                                                                                                                                          |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| notifications      | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| checkout           | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| refund             | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| settlements        | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| tnc_accepted       | boolean                                                                                                                            | Pass this parameter to accept terms and conditions. Send this parameter along with the ip parameter when the tnc is accepted. Possible value is `true`                                               |
+| ip                 | string                                                                                                                             | The IP address of the merchant while accepting the terms and conditions. Send this parameter along with the tnc_accepted parameter when the `tnc` is accepted.                                       |
+| payment_methods    | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported |
+| type               | string                                                                                                                             | Possible value is `domestic`                                                                                                                                                                         |
+| issuer             | string                                                                                                                             | The card issuer. Possible values for issuer are `amex`, `dicl`, `maestro`, `mastercard`, `rupay`, `visa`.                                                                                            |
+| wallet             | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| instrument(wallet) | string                                                                                                                             | The wallet issuer. Possible values are `airtelmoney`, `amazonpay`, `freecharge`, `jiomoney`, `mobiwik`, `mpesa`, `olamoney`, `paytm`, `payzapp`, `payumoney`, `phonepe`, `phonepeswitch`, `sbibuddy` |
+| instrument(wallet) | string                                                                                                                             | The wallet issuer. Possible values are `airtelmoney`, `amazonpay`, `freecharge`, `jiomoney`, `mobiwik`, `mpesa`, `olamoney`, `paytm`, `payzapp`, `payumoney`, `phonepe`, `phonepeswitch`, `sbibuddy` |
+| upi                | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| instrument(upi)    | string                                                                                                                             | The UPI service provider. Possible values are `google_pay`, `upi`                                                                                                                                    |
+| paylater           | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
+| instrument(emi)    | string                                                                                                                             | The Paylater service provider. Possible values are `epaylater`, `getsimpl`                                                                                                                           |
+| emi                | object                                                                                                                             | All keys listed [here](https://razorpay.com/docs/api/partners/product-configuration/#update-a-product-configuration) are supported                                                                   |
 
 **Response:**
+
 ```json
 {
   "id": "acc_GP4lfNA0iIMn5B",
@@ -245,9 +238,11 @@ client.product.edit(accountId, productId, {
   "customer_facing_business_name": "ABCD Ltd"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch a product configuration
+
 ```py
 accountId = "acc_GP4lfNA0iIMn5B"
 
@@ -258,12 +253,13 @@ client.product.fetch(accountId, productId)
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| accountId* | string      | The unique identifier of a sub-merchant account generated by Razorpay.  |
-| productId* | string      | The unique identifier of a product generated by Razorpay.  |
+| Name        | Type   | Description                                                            |
+| ----------- | ------ | ---------------------------------------------------------------------- |
+| accountId\* | string | The unique identifier of a sub-merchant account generated by Razorpay. |
+| productId\* | string | The unique identifier of a product generated by Razorpay.              |
 
 **Response:**
+
 ```json
 {
   "requested_configuration": {
@@ -290,9 +286,7 @@ client.product.fetch(accountId, productId)
     "notifications": {
       "whatsapp": true,
       "sms": false,
-      "email": [
-        "b963e252-1201-45b0-9c39-c53eceb0cfd6_load@gmail.com"
-      ]
+      "email": ["b963e252-1201-45b0-9c39-c53eceb0cfd6_load@gmail.com"]
     },
     "payment_methods": {
       "netbanking": {
@@ -300,14 +294,7 @@ client.product.fetch(accountId, productId)
         "instrument": [
           {
             "type": "retail",
-            "bank": [
-              "hdfc",
-              "sbin",
-              "utib",
-              "icic",
-              "scbl",
-              "yesb"
-            ]
+            "bank": ["hdfc", "sbin", "utib", "icic", "scbl", "yesb"]
           }
         ]
       },
@@ -324,9 +311,7 @@ client.product.fetch(accountId, productId)
       },
       "upi": {
         "enabled": true,
-        "instrument": [
-          "upi"
-        ]
+        "instrument": ["upi"]
       }
     }
   },
@@ -392,7 +377,7 @@ client.product.fetch(accountId, productId)
       "reason_code": "field_missing"
     }
   ],
-  "tnc":{
+  "tnc": {
     "id": "tnc_IgohZaDBHRGjPv",
     "accepted": true,
     "accepted_at": 1641550798
@@ -405,9 +390,10 @@ client.product.fetch(accountId, productId)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch Terms and Conditions for a Sub-Merchant
+
 ```py
 
 productName = "payments"
@@ -417,11 +403,12 @@ client.product.fetchTnc(productName)
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| productName* | string      | The product family for which the relevant product to be requested for the sub-merchant. Possible value is `payments`  |
+| Name          | Type   | Description                                                                                                          |
+| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| productName\* | string | The product family for which the relevant product to be requested for the sub-merchant. Possible value is `payments` |
 
 **Response:**
+
 ```json
 {
   "entity": "tnc_map",
@@ -436,9 +423,9 @@ client.product.fetchTnc(productName)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
-**For reference click [here](https://razorpay.com/docs/api/partners/product-configuration/)**
+**PN: \* indicates mandatory fields**
+
+**For reference click
+[here](https://razorpay.com/docs/api/partners/product-configuration/)**

@@ -1,0 +1,17 @@
+---
+proseWrap: always
+tabWidth: 2
+useTabs: false
+overrides:
+  - files:
+      - "*.md"
+    options:
+      # compatibility with markdownlint
+      proseWrap: always
+      printWidth: 80
+  - files:
+      - "*.yaml"
+      - "*.yml"
+    options:
+      # compatibility with yamllint
+      proseWrap: preserve

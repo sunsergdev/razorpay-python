@@ -2,8 +2,7 @@
 
 ### Create payment link
 
-Request #1
-Standard Payment Link
+Request #1 Standard Payment Link
 
 ```py
 client.payment_link.create({
@@ -30,8 +29,7 @@ client.payment_link.create({
 })
 ```
 
-Request #2
-UPI Payment Link
+Request #2 UPI Payment Link
 
 ```py
 client.payment_link.create({
@@ -63,27 +61,27 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|upi_link*          | boolean | boolean Must be set to `True`   //   to creating UPI Payment Link only                                     |
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  | Indicates whether customers can make partial payments using the Payment Link. Possible values: `True` - Customer can make partial payments. `False` (default) - Customer cannot make partial payments. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|reference_id           | string  | Reference number tagged to a Payment Link.                      |
-|customer           | object  | All parameters listed [here](https://razorpay.com/docs/api/payments/payment-links/#sample-codes-for-upi-payment-links) are supported                 |
-|expire_by           | integer  | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                     |
-|notify           | object  | sms or email (boolean)                     |
-|notes           | json object  | Key-value pair that can be used to store additional information about the entity. Maximum 15 key-value pairs, 256 characters (maximum) each. For example, "note_key": "Beam me up Scotty”                     |
-| callback_url | string | If specified, adds a redirect URL to the Payment Link. Once customers completes the payment, they are redirected to the specified URL. |
-| callback_method | string | If callback_url parameter is passed, callback_method must be passed with the value `get`. |
-| reminder_enable | boolean | Used to send reminders for the Payment Link. Possible values is `True` or `False` |
+| Name                     | Type        | Description                                                                                                                                                                                                                                                 |
+| ------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upi_link\*               | boolean     | boolean Must be set to `True` // to creating UPI Payment Link only                                                                                                                                                                                          |
+| amount\*                 | integer     | Amount to be paid using the Payment Link.                                                                                                                                                                                                                   |
+| currency                 | string      | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                                                                         |
+| accept_partial           | boolean     | Indicates whether customers can make partial payments using the Payment Link. Possible values: `True` - Customer can make partial payments. `False` (default) - Customer cannot make partial payments. // UPI Payment Link is not supported partial payment |
+| description              | string      | A brief description of the Payment Link                                                                                                                                                                                                                     |
+| first_min_partial_amount | integer     | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                                                                                  |
+| reference_id             | string      | Reference number tagged to a Payment Link.                                                                                                                                                                                                                  |
+| customer                 | object      | All parameters listed [here](https://razorpay.com/docs/api/payments/payment-links/#sample-codes-for-upi-payment-links) are supported                                                                                                                        |
+| expire_by                | integer     | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                                                                                                               |
+| notify                   | object      | sms or email (boolean)                                                                                                                                                                                                                                      |
+| notes                    | json object | Key-value pair that can be used to store additional information about the entity. Maximum 15 key-value pairs, 256 characters (maximum) each. For example, "note_key": "Beam me up Scotty”                                                                   |
+| callback_url             | string      | If specified, adds a redirect URL to the Payment Link. Once customers completes the payment, they are redirected to the specified URL.                                                                                                                      |
+| callback_method          | string      | If callback_url parameter is passed, callback_method must be passed with the value `get`.                                                                                                                                                                   |
+| reminder_enable          | boolean     | Used to send reminders for the Payment Link. Possible values is `True` or `False`                                                                                                                                                                           |
 
-**Response:**
-For create payment link response please click [here](https://razorpay.com/docs/api/payment-links/#create-payment-link)
+**Response:** For create payment link response please click
+[here](https://razorpay.com/docs/api/payment-links/#create-payment-link)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch all payment link
 
@@ -93,15 +91,15 @@ client.payment_link.all()
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|payment_id          | string | Unique identifier of the payment associated with the Payment Link.                                               |
-|reference_id        | string  | The unique reference number entered by you while creating the Payment Link.                     |
+| Name         | Type   | Description                                                                 |
+| ------------ | ------ | --------------------------------------------------------------------------- |
+| payment_id   | string | Unique identifier of the payment associated with the Payment Link.          |
+| reference_id | string | The unique reference number entered by you while creating the Payment Link. |
 
-**Response:**
-For fetch all payment link response please click [here](https://razorpay.com/docs/api/payment-links/#all-payment-links)
+**Response:** For fetch all payment link response please click
+[here](https://razorpay.com/docs/api/payment-links/#all-payment-links)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch specific payment link
 
@@ -111,14 +109,14 @@ client.payment_link.fetch(paymentLinkId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| paymentLinkId*          | string |  Unique identifier of the Payment Link.                         |
+| Name            | Type   | Description                            |
+| --------------- | ------ | -------------------------------------- |
+| paymentLinkId\* | string | Unique identifier of the Payment Link. |
 
-**Response:**
-For fetch specific payment link response please click [here](https://razorpay.com/docs/api/payment-links/#specific-payment-links-by-id)
+**Response:** For fetch specific payment link response please click
+[here](https://razorpay.com/docs/api/payment-links/#specific-payment-links-by-id)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Update payment link
 
@@ -135,18 +133,18 @@ client.payment_link.edit(paymentLinkId, {
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| paymentLinkId*          | string | The unique identifier of the Payment Link that needs to be updated.                         |
-| accept_partial         | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values: `True` - Customer can make partial payments. `False` (default) - Customer cannot make partial payments.                         |
-| reference_id          | string | Adds a unique reference number to an existing link.                         |
-| expire_by         | integer | Timestamp, in Unix format, when the payment links should expire.                         |
-| notes          | string | object Key-value pair that can be used to store additional information about the entity. Maximum 15 key-value pairs, 256 characters (maximum) each. For example, "note_key": "Beam me up Scotty”.                         |
+| Name            | Type    | Description                                                                                                                                                                                            |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| paymentLinkId\* | string  | The unique identifier of the Payment Link that needs to be updated.                                                                                                                                    |
+| accept_partial  | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values: `True` - Customer can make partial payments. `False` (default) - Customer cannot make partial payments. |
+| reference_id    | string  | Adds a unique reference number to an existing link.                                                                                                                                                    |
+| expire_by       | integer | Timestamp, in Unix format, when the payment links should expire.                                                                                                                                       |
+| notes           | string  | object Key-value pair that can be used to store additional information about the entity. Maximum 15 key-value pairs, 256 characters (maximum) each. For example, "note_key": "Beam me up Scotty”.      |
 
-**Response:**
-For updating payment link response please click [here](https://razorpay.com/docs/api/payment-links/#update-payment-link)
+**Response:** For updating payment link response please click
+[here](https://razorpay.com/docs/api/payment-links/#update-payment-link)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Cancel a payment link
 
@@ -156,13 +154,14 @@ client.payment_link.cancel(paymentLinkId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| paymentLinkId*          | string | Unique identifier of the Payment Link.                         |
+| Name            | Type   | Description                            |
+| --------------- | ------ | -------------------------------------- |
+| paymentLinkId\* | string | Unique identifier of the Payment Link. |
 
-**Response:**
-For canceling payment link response please click [here](https://razorpay.com/docs/api/payment-links/#cancel-payment-link)
--------------------------------------------------------------------------------------------------------
+**Response:** For canceling payment link response please click
+[here](https://razorpay.com/docs/api/payment-links/#cancel-payment-link)
+
+---
 
 ### Send notification
 
@@ -172,18 +171,20 @@ client.payment_link.notifyBy(paymentLinkId, medium)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| paymentLinkId*          | string | Unique identifier of the Payment Link that should be resent.                         |
-| medium*          | string | `sms`/`email`,Medium through which the Payment Link must be resent. Allowed values are:           |
+| Name            | Type   | Description                                                                             |
+| --------------- | ------ | --------------------------------------------------------------------------------------- |
+| paymentLinkId\* | string | Unique identifier of the Payment Link that should be resent.                            |
+| medium\*        | string | `sms`/`email`,Medium through which the Payment Link must be resent. Allowed values are: |
 
 **Response:**
+
 ```json
 {
-    "success": true
+  "success": true
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Transfer payments received using payment links
 
@@ -227,12 +228,13 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|options*           | array  |  Options to configure the transfer in the Payment Link. Parent parameter under which the order child parameter must be passed.                     |
+| Name      | Type    | Description                                                                                                                   |
+| --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| amount\*  | integer | Amount to be paid using the Payment Link.                                                                                     |
+| options\* | array   | Options to configure the transfer in the Payment Link. Parent parameter under which the order child parameter must be passed. |
 
 **Response:**
+
 ```json
 {
   "accept_partial": false,
@@ -271,7 +273,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Offers on payment links
 
@@ -305,18 +308,19 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|description           | string  | A brief description of the Payment Link                     |
-|reference_id           | string  | A Reference number tagged to a Payment Link.                      |
-|customer           | array  | name, email, contact                 |
-|expire_by           | integer  | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                     |
-|notify           | object  | sms or email (boolean)                     |
-|options*        | array  | Options to associate the offer_id with the Payment Link. Parent parameter under which the order child parameter must be passed.                     |
+| Name         | Type    | Description                                                                                                                                   |
+| ------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*     | integer | Amount to be paid using the Payment Link.                                                                                                     |
+| currency     | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                           |
+| description  | string  | A brief description of the Payment Link                                                                                                       |
+| reference_id | string  | A Reference number tagged to a Payment Link.                                                                                                  |
+| customer     | array   | name, email, contact                                                                                                                          |
+| expire_by    | integer | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation. |
+| notify       | object  | sms or email (boolean)                                                                                                                        |
+| options\*    | array   | Options to associate the offer_id with the Payment Link. Parent parameter under which the order child parameter must be passed.               |
 
 **Response:**
+
 ```json
 {
   "accept_partial": false,
@@ -349,7 +353,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Managing reminders for payment links
 
@@ -376,18 +381,19 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments. `False` (default) - Customer cannot make partial payments.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|expire_by           | integer  | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                     |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as `False`                     |
+| Name            | Type    | Description                                                                                                                                                                                           |
+| --------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*        | integer | Amount to be paid using the Payment Link.                                                                                                                                                             |
+| accept_partial  | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments. `False` (default) - Customer cannot make partial payments. |
+| currency        | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                   |
+| description     | string  | A brief description of the Payment Link                                                                                                                                                               |
+| customer        | object  | name, email, contact                                                                                                                                                                                  |
+| expire_by       | integer | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                                                         |
+| notify          | object  | sms or email (boolean)                                                                                                                                                                                |
+| reminder_enable | boolean | To disable reminders for a Payment Link, pass reminder_enable as `False`                                                                                                                              |
 
 **Response:**
+
 ```json
 {
   "amount": 340000,
@@ -444,7 +450,8 @@ client.payment_link.create({
   "view_less": true
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Rename labels in checkout section
 
@@ -480,19 +487,20 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|expire_by           | integer  | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                     |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as false                     |
-|options*       | object  | Options to rename the labels for partial payment fields in the checkout form. Parent parameter under which the checkout and partial_payment child parameters must be passed. |
+| Name            | Type    | Description                                                                                                                                                                                          |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*        | integer | Amount to be paid using the Payment Link.                                                                                                                                                            |
+| accept_partial  | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments. |
+| currency        | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                  |
+| description     | string  | A brief description of the Payment Link                                                                                                                                                              |
+| customer        | object  | name, email, contact                                                                                                                                                                                 |
+| expire_by       | integer | Timestamp, in Unix, at which the Payment Link will expire. By default, a Payment Link will be valid for six months from the date of creation.                                                        |
+| notify          | object  | sms or email (boolean)                                                                                                                                                                               |
+| reminder_enable | boolean | To disable reminders for a Payment Link, pass reminder_enable as false                                                                                                                               |
+| options\*       | object  | Options to rename the labels for partial payment fields in the checkout form. Parent parameter under which the checkout and partial_payment child parameters must be passed.                         |
 
 **Response:**
+
 ```json
 {
   "accept_partial": true,
@@ -531,7 +539,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Change Business name
 
@@ -563,19 +572,20 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments.                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as false                     |
-|options*       | object  | Option to customize the business name. Parent parameter under which the checkout child parameter must be passed.|
+| Name                     | Type    | Description                                                                                                                                                                                          |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*                 | integer | Amount to be paid using the Payment Link.                                                                                                                                                            |
+| currency                 | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                  |
+| accept_partial           | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments. |
+| first_min_partial_amount | integer | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                           |
+| description              | string  | A brief description of the Payment Link                                                                                                                                                              |
+| customer                 | object  | name, email, contact                                                                                                                                                                                 |
+| notify                   | object  | sms or email (boolean)                                                                                                                                                                               |
+| reminder_enable          | boolean | To disable reminders for a Payment Link, pass reminder_enable as false                                                                                                                               |
+| options\*                | object  | Option to customize the business name. Parent parameter under which the checkout child parameter must be passed.                                                                                     |
 
 **Response:**
+
 ```json
 {
   "accept_partial": true,
@@ -613,7 +623,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Prefill checkout fields
 
@@ -651,22 +662,22 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments.                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as `False`                     |
-|options*       | array  | Options to customize Checkout. Parent parameter under which the checkout and prefill child parameters must be passed.|
+| Name                     | Type    | Description                                                                                                                                                                                          |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*                 | integer | Amount to be paid using the Payment Link.                                                                                                                                                            |
+| currency                 | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                  |
+| accept_partial           | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments. |
+| first_min_partial_amount | integer | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                           |
+| description              | string  | A brief description of the Payment Link                                                                                                                                                              |
+| customer                 | object  | name, email, contact                                                                                                                                                                                 |
+| notify                   | object  | sms or email (boolean)                                                                                                                                                                               |
+| reminder_enable          | boolean | To disable reminders for a Payment Link, pass reminder_enable as `False`                                                                                                                             |
+| options\*                | array   | Options to customize Checkout. Parent parameter under which the checkout and prefill child parameters must be passed.                                                                                |
 
-**Response:**
-For prefill checkout fields response please click [here](https://razorpay.com/docs/payment-links/api/new/advanced-options/customize/prefill/)
+**Response:** For prefill checkout fields response please click
+[here](https://razorpay.com/docs/payment-links/api/new/advanced-options/customize/prefill/)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Customize payment methods
 
@@ -702,19 +713,20 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments.                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as `False`                     |
-|options*       | object  | Options to display or hide payment methods on the Checkout section. Parent parameter under which the checkout and method child parameters must be passed.|
+| Name                     | Type    | Description                                                                                                                                                                                          |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*                 | integer | Amount to be paid using the Payment Link.                                                                                                                                                            |
+| currency                 | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                  |
+| accept_partial           | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments. |
+| first_min_partial_amount | integer | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                           |
+| description              | string  | A brief description of the Payment Link                                                                                                                                                              |
+| customer                 | object  | name, email, contact                                                                                                                                                                                 |
+| notify                   | object  | sms or email (boolean)                                                                                                                                                                               |
+| reminder_enable          | boolean | To disable reminders for a Payment Link, pass reminder_enable as `False`                                                                                                                             |
+| options\*                | object  | Options to display or hide payment methods on the Checkout section. Parent parameter under which the checkout and method child parameters must be passed.                                            |
 
 **Response:**
+
 ```json
 {
   "accept_partial": true,
@@ -753,7 +765,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Set checkout fields as read-only
 
@@ -788,19 +801,20 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments.                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as `False`                     |
-|options*       | object  | Options to set contact and email as read-only fields on Checkout. Parent parameter under which the checkout and readonly child parameters must be passed.|
+| Name                     | Type    | Description                                                                                                                                                                                          |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*                 | integer | Amount to be paid using the Payment Link.                                                                                                                                                            |
+| currency                 | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                  |
+| accept_partial           | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments. |
+| first_min_partial_amount | integer | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                           |
+| description              | string  | A brief description of the Payment Link                                                                                                                                                              |
+| customer                 | object  | name, email, contact                                                                                                                                                                                 |
+| notify                   | object  | sms or email (boolean)                                                                                                                                                                               |
+| reminder_enable          | boolean | To disable reminders for a Payment Link, pass reminder_enable as `False`                                                                                                                             |
+| options\*                | object  | Options to set contact and email as read-only fields on Checkout. Parent parameter under which the checkout and readonly child parameters must be passed.                                            |
 
 **Response:**
+
 ```json
 {
   "accept_partial": true,
@@ -839,7 +853,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Implement thematic changes in payment links checkout section
 
@@ -873,19 +888,20 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.false (default) - Customer cannot make partial payments.                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as `False`                     |
-|options*       | object  | Options to show or hide the top bar. Parent parameter under which the checkout and theme child parameters must be passed.|
+| Name                     | Type    | Description                                                                                                                                                                                        |
+| ------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*                 | integer | Amount to be paid using the Payment Link.                                                                                                                                                          |
+| currency                 | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                |
+| accept_partial           | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.false (default) - Customer cannot make partial payments. |
+| first_min_partial_amount | integer | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                         |
+| description              | string  | A brief description of the Payment Link                                                                                                                                                            |
+| customer                 | object  | name, email, contact                                                                                                                                                                               |
+| notify                   | object  | sms or email (boolean)                                                                                                                                                                             |
+| reminder_enable          | boolean | To disable reminders for a Payment Link, pass reminder_enable as `False`                                                                                                                           |
+| options\*                | object  | Options to show or hide the top bar. Parent parameter under which the checkout and theme child parameters must be passed.                                                                          |
 
 **Response:**
+
 ```json
 {
   "accept_partial": true,
@@ -923,7 +939,8 @@ client.payment_link.create({
   "user_id": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Rename labels in payment details section
 
@@ -960,24 +977,23 @@ client.payment_link.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|amount*        | integer  | Amount to be paid using the Payment Link.                     |
-|currency           | string  |  A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                     |
-|accept_partial        | boolean  |  Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments.                     |
-|first_min_partial_amount           | integer  |Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment  |
-|description           | string  | A brief description of the Payment Link                     |
-|customer           | object  | name, email, contact                 |
-|notify           | object  | sms or email (boolean)                     |
-|reminder_enable       | boolean  | To disable reminders for a Payment Link, pass reminder_enable as `False`                     |
-|options*       | object  | Parent parameter under which the hosted_page and label child parameters must be passed.|
+| Name                     | Type    | Description                                                                                                                                                                                          |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*                 | integer | Amount to be paid using the Payment Link.                                                                                                                                                            |
+| currency                 | string  | A three-letter ISO code for the currency in which you want to accept the payment. For example, INR.                                                                                                  |
+| accept_partial           | boolean | Indicates whether customers can make partial payments using the Payment Link. Possible values:`True` - Customer can make partial payments.`False` (default) - Customer cannot make partial payments. |
+| first_min_partial_amount | integer | Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment. // UPI Payment Link is not supported partial payment                                           |
+| description              | string  | A brief description of the Payment Link                                                                                                                                                              |
+| customer                 | object  | name, email, contact                                                                                                                                                                                 |
+| notify                   | object  | sms or email (boolean)                                                                                                                                                                               |
+| reminder_enable          | boolean | To disable reminders for a Payment Link, pass reminder_enable as `False`                                                                                                                             |
+| options\*                | object  | Parent parameter under which the hosted_page and label child parameters must be passed.                                                                                                              |
 
-**Response:**
-For rename labels in payment details section response please click [here](https://razorpay.com/docs/payment-links/api/new/advanced-options/customize/rename-payment-details-labels/)
+**Response:** For rename labels in payment details section response please click
+[here](https://razorpay.com/docs/payment-links/api/new/advanced-options/customize/rename-payment-details-labels/)
 
--------------------------------------------------------------------------------------------------------
+---
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/payment-links/)**

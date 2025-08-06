@@ -11,13 +11,14 @@ client.payment.capture(paymentId,{
 
 **Parameters:**
 
-| Name      | Type    | Description                                                                    |
-|-----------|---------|--------------------------------------------------------------------------------|
-| paymentId* | string  | Id of the payment to capture                                                   |
-| amount*    | integer | The amount to be captured (should be equal to the authorized amount, in paise) |
-| currency*   | string  | The currency of the payment (defaults to INR)                                  |
+| Name        | Type    | Description                                                                    |
+| ----------- | ------- | ------------------------------------------------------------------------------ |
+| paymentId\* | string  | Id of the payment to capture                                                   |
+| amount\*    | integer | The amount to be captured (should be equal to the authorized amount, in paise) |
+| currency\*  | string  | The currency of the payment (defaults to INR)                                  |
 
 **Response:**
+
 ```json
 {
   "id": "pay_G8VQzjPLoAvm6D",
@@ -54,7 +55,8 @@ client.payment.capture(paymentId,{
   "created_at": 1606985209
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch all payments
 
@@ -64,15 +66,16 @@ client.payment.all(option)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| from  | timestamp | timestamp after which the payments were created  |
-| to    | timestamp | timestamp before which the payments were created |
-| count | integer   | number of payments to fetch (default: 10)        |
-| skip  | integer   | number of payments to be skipped (default: 0)    |
-| expand[]  | string    |  Used to retrieve additional information about the payment. Possible value is `card`, `offers`, `transaction`, `transaction.settlement`, `refunds`, `token` or `emi`|
+| Name     | Type      | Description                                                                                                                                                         |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | timestamp | timestamp after which the payments were created                                                                                                                     |
+| to       | timestamp | timestamp before which the payments were created                                                                                                                    |
+| count    | integer   | number of payments to fetch (default: 10)                                                                                                                           |
+| skip     | integer   | number of payments to be skipped (default: 0)                                                                                                                       |
+| expand[] | string    | Used to retrieve additional information about the payment. Possible value is `card`, `offers`, `transaction`, `transaction.settlement`, `refunds`, `token` or `emi` |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -115,7 +118,8 @@ client.payment.all(option)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch a payment
 
@@ -125,12 +129,13 @@ client.payment.fetch(paymentId)
 
 **Parameters:**
 
-| Name       | Type   | Description                       |
-|------------|--------|-----------------------------------|
-| paymentId* | string | Id of the payment to be retrieved |
-| expand[]  | string    |  Used to retrieve additional information about the payment. Possible value is `card`, `offers`, `transaction`, `transaction.settlement`, `refunds`, `token` or `emi`|
+| Name        | Type   | Description                                                                                                                                                         |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| paymentId\* | string | Id of the payment to be retrieved                                                                                                                                   |
+| expand[]    | string | Used to retrieve additional information about the payment. Possible value is `card`, `offers`, `transaction`, `transaction.settlement`, `refunds`, `token` or `emi` |
 
 **Response:**
+
 ```json
 {
   "id": "pay_G8VQzjPLoAvm6D",
@@ -167,20 +172,23 @@ client.payment.fetch(paymentId)
   "created_at": 1606985209
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch payments for an order
 
 ```py
 client.order.payments(orderId)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| orderId* | string | The id of the order to be retrieve payment info |
+| Name      | Type   | Description                                     |
+| --------- | ------ | ----------------------------------------------- |
+| orderId\* | string | The id of the order to be retrieve payment info |
 
 **Response:**
+
 ```json
 {
   "count": 1,
@@ -220,27 +228,29 @@ client.order.payments(orderId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Update a payment
 
 ```py
 client.payment.edit(paymentId,{
-	"notes": {
-		"key1": "value1",
-		"key2": "value2"
-	}
+    "notes": {
+      "key1": "value1",
+      "key2": "value2"
+    }
 })
 ```
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| paymentId* | string  | Id of the payment to update          |
-| notes*       | object  | A key-value pair                     |
+| Name        | Type   | Description                 |
+| ----------- | ------ | --------------------------- |
+| paymentId\* | string | Id of the payment to update |
+| notes\*     | object | A key-value pair            |
 
 **Response:**
+
 ```json
 {
   "id": "pay_CBYy6tLmJTzn3Q",
@@ -279,7 +289,8 @@ client.payment.edit(paymentId,{
   "created_at": 1553504328
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch expanded card or emi details for payments
 
@@ -295,10 +306,11 @@ Request #2: EMI
 client.payment.all({'expand[]':'emi'})
 ```
 
-**Response:**<br>
-For expanded card or emi details for payments response please click [here](https://razorpay.com/docs/api/payments/#fetch-expanded-card-or-emi-details-for-payments)
+**Response:**<br> For expanded card or emi details for payments response please
+click
+[here](https://razorpay.com/docs/api/payments/#fetch-expanded-card-or-emi-details-for-payments)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch card details with paymentId
 
@@ -308,11 +320,12 @@ client.payment.fetchCardDetails(paymentId)
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| paymentId* | string  | Id of the payment to update          |
+| Name        | Type   | Description                 |
+| ----------- | ------ | --------------------------- |
+| paymentId\* | string | Id of the payment to update |
 
 **Response:**
+
 ```json
 {
   "id": "card_JXPULjlKqC5j0i",
@@ -328,17 +341,19 @@ client.payment.fetchCardDetails(paymentId)
   "token_iin": null
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch Payment Downtime Details
 
 ```py
 client.payment.fetchDownTime()
 ```
-**Response:** <br>
-For payment downtime response please click [here](https://razorpay.com/docs/api/payments/downtime/#fetch-payment-downtime-details)
 
--------------------------------------------------------------------------------------------------------
+**Response:** <br> For payment downtime response please click
+[here](https://razorpay.com/docs/api/payments/downtime/#fetch-payment-downtime-details)
+
+---
 
 ### Fetch Payment Downtime
 
@@ -348,13 +363,14 @@ client.payment.fetchPaymentDowntimeById(downtimeId)
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| downtimeId* | string  | Id to fetch payment downtime         |
+| Name         | Type   | Description                  |
+| ------------ | ------ | ---------------------------- |
+| downtimeId\* | string | Id to fetch payment downtime |
 
-**Response:**
-For payment downtime by id response please click [here](https://razorpay.com/docs/api/payments/downtime/#fetch-payment-downtime-details-by-id)
--------------------------------------------------------------------------------------------------------
+**Response:** For payment downtime by id response please click
+[here](https://razorpay.com/docs/api/payments/downtime/#fetch-payment-downtime-details-by-id)
+
+---
 
 ### Payment capture settings API
 
@@ -369,22 +385,23 @@ client.order.create({
       'automatic_expiry_period': 12,
       'manual_expiry_period': 7200,
       'refund_speed': 'optimum'
-    }  
+    }
   }
 })
 ```
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| amount*          | integer | Amount of the order to be paid                                               |
-| currency*        | string  | Currency of the order. Currently only `INR` is supported.       |
-| receipt         | string  | Your system order reference id.                                              |
-| payment         | object  | please refer this [doc](https://razorpay.com/docs/payments/payments/capture-settings/api/) for params       |
-| notes       | object  | A key-value pair  |
+| Name       | Type    | Description                                                                                           |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------- |
+| amount\*   | integer | Amount of the order to be paid                                                                        |
+| currency\* | string  | Currency of the order. Currently only `INR` is supported.                                             |
+| receipt    | string  | Your system order reference id.                                                                       |
+| payment    | object  | please refer this [doc](https://razorpay.com/docs/payments/payments/capture-settings/api/) for params |
+| notes      | object  | A key-value pair                                                                                      |
 
 **Response:** <br>
+
 ```json
 {
   "id": "order_Jng8xOZRVEf97O",
@@ -395,52 +412,53 @@ client.order.create({
   "currency": "INR",
   "receipt": "rcptid_11",
   "offer_id": "offer_JTUADI4ZWBGWur",
-  "offers": [
-    "offer_JTUADI4ZWBGWur"
-  ],
+  "offers": ["offer_JTUADI4ZWBGWur"],
   "status": "created",
   "attempts": 0,
   "notes": [],
   "created_at": 1656586126
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create Payment Json
 
 ```py
 client.payment.createPaymentJson({
-	"amount": 100,
-	"currency": "INR",
-	"contact": "9000090000",
-	"email": "gaurav.kumar@example.com",
-	"order_id": "order_DPzFe1Q1dEOKed",
-	"method": "card",
-	"card": {
-    	"number": "4386289407660153",
-    	"name": "Gaurav",
-    	"expiry_month": 11,
-    	"expiry_year": 30,
-    	"cvv": 100
-    },
-    "authentication": {
-    	"authentication_channel": "browser"
-    },
-    "browser": {
-    	"java_enabled": False,
-    	"javascript_enabled": False,
-    	"timezone_offset": 11,
-    	"color_depth": 23,
-    	"screen_width": 23,
-    	"screen_height": 100
-    }
+    "amount": 100,
+    "currency": "INR",
+    "contact": "9000090000",
+    "email": "gaurav.kumar@example.com",
+    "order_id": "order_DPzFe1Q1dEOKed",
+    "method": "card",
+    "card": {
+        "number": "4386289407660153",
+        "name": "Gaurav",
+        "expiry_month": 11,
+        "expiry_year": 30,
+        "cvv": 100
+      },
+      "authentication": {
+        "authentication_channel": "browser"
+      },
+      "browser": {
+        "java_enabled": False,
+        "javascript_enabled": False,
+        "timezone_offset": 11,
+        "color_depth": 23,
+        "screen_width": 23,
+        "screen_height": 100
+      }
 })
 ```
 
-**Parameters:**
- please refer this [doc](https://razorpay.com/docs/payment-gateway/s2s-integration/payment-methods/) for params
+**Parameters:** please refer this
+[doc](https://razorpay.com/docs/payment-gateway/s2s-integration/payment-methods/)
+for params
 
 **Response:** <br>
+
 ```json
 {
   "razorpay_payment_id": "pay_FVmAstJWfsD3SO",
@@ -456,7 +474,8 @@ client.payment.createPaymentJson({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create Payment Json (Third party validation)
 
@@ -472,20 +491,21 @@ client.payment.createPaymentJson({
 })
 ```
 
-**Parameters:**
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| amount*          | integer | Amount of the order to be paid  |
-| currency*   | string  | The currency of the payment (defaults to INR)                                  |
-| order_id*        | string  | The unique identifier of the order created. |
-| email*        | string      | Email of the customer                       |
-| contact*      | string      | Contact number of the customer              |
-| method*      | string  | Possible value is `netbanking` |
-| bank*      | string      | The customer's bank code.For example, `HDFC`.|
+**Parameters:** | Name | Type | Description |
+|-------------|---------|--------------------------------------| | amount* |
+integer | Amount of the order to be paid | | currency* | string | The currency
+of the payment (defaults to INR) | | order_id* | string | The unique identifier
+of the order created. | | email* | string | Email of the customer | | contact* |
+string | Contact number of the customer | | method* | string | Possible value is
+`netbanking` | | bank\* | string | The customer's bank code.For example,
+`HDFC`.|
 
- please refer this [doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/netbanking#step-3-create-a-payment) for params
+please refer this
+[doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/netbanking#step-3-create-a-payment)
+for params
 
 **Response:** <br>
+
 ```json
 {
   "razorpay_payment_id": "pay_GAWOYqPlvrtPSi",
@@ -497,7 +517,9 @@ client.payment.createPaymentJson({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Create Payment UPI s2s / VPA token (Third party validation)
 
 ```py
@@ -525,31 +547,35 @@ client.payment.createUpi({
 })
 ```
 
-**Parameters:**
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| amount*          | integer | Amount of the order to be paid  |
-| currency*   | string  | The currency of the payment (defaults to INR)                                  |
-| order_id*        | string  | The unique identifier of the order created. |
-| email*        | string      | Email of the customer                       |
-| customer_id*   | string      | The id of the customer to be fetched |
-| contact*      | string      | Contact number of the customer              |
-| notes | array  | A key-value pair  |
-| description | string  | Descriptive text of the payment. |
-| save | boolean  |  Specifies if the VPA should be stored as tokens.Possible value is `True`, `False`  |
-| callback_url   | string      | URL where Razorpay will submit the final payment status. |
-| ip*   | string      | The client's browser IP address. For example `117.217.74.98` |
-| referer*   | string      | Value of `referer` header passed by the client's browser. For example, `https://example.com/` |
-| user_agent*   | string      | Value of `user_agent` header passed by the client's browser. For example, `Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36` |
-| upi* (for Upi only)  | array      | All keys listed [here](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/collect#step-14-initiate-a-payment) are supported  |
+**Parameters:** | Name | Type | Description |
+|-------------|---------|--------------------------------------| | amount* |
+integer | Amount of the order to be paid | | currency* | string | The currency
+of the payment (defaults to INR) | | order_id* | string | The unique identifier
+of the order created. | | email* | string | Email of the customer | |
+customer_id* | string | The id of the customer to be fetched | | contact* |
+string | Contact number of the customer | | notes | array | A key-value pair | |
+description | string | Descriptive text of the payment. | | save | boolean |
+Specifies if the VPA should be stored as tokens.Possible value is `True`,
+`False` | | callback_url | string | URL where Razorpay will submit the final
+payment status. | | ip* | string | The client's browser IP address. For example
+`117.217.74.98` | | referer* | string | Value of `referer` header passed by the
+client's browser. For example, `https://example.com/` | | user_agent* | string |
+Value of `user_agent` header passed by the client's browser. For example,
+`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36`
+| | upi* (for Upi only) | array | All keys listed
+[here](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/collect#step-14-initiate-a-payment)
+are supported |
 
 **Response:** <br>
+
 ```json
 {
   "razorpay_payment_id": "pay_EAm09NKReXi2e0"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Create Payment UPI s2s / VPA token (Third party validation)
 
 ```py
@@ -573,97 +599,103 @@ client.payment.createUpi({
 })
 ```
 
-**Parameters:**
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| amount*          | integer | Amount of the order to be paid  |
-| currency*   | string  | The currency of the payment (defaults to INR)                                  |
-| order_id*        | string  | The unique identifier of the order created. |
-| email*        | string      | Email of the customer                       |
-| customer_id*   | string      | The id of the customer to be fetched |
-| contact*      | string      | Contact number of the customer              |
-| notes | array  | A key-value pair  |
-| description | string  | Descriptive text of the payment. |
-| save | boolean  |  Specifies if the VPA should be stored as tokens.Possible value is `True`, `False`  |
-| callback_url   | string      | URL where Razorpay will submit the final payment status. |
-| ip*   | string      | The client's browser IP address. For example `117.217.74.98` |
-| referer*   | string      | Value of `referer` header passed by the client's browser. For example, `https://example.com/` |
-| user_agent*   | string      | Value of `user_agent` header passed by the client's browser. For example, `Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36` |
-| upi* (for Upi only)  | array      | All keys listed [here](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/intent/#step-2-initiate-a-payment) are supported  |
+**Parameters:** | Name | Type | Description |
+|-------------|---------|--------------------------------------| | amount* |
+integer | Amount of the order to be paid | | currency* | string | The currency
+of the payment (defaults to INR) | | order_id* | string | The unique identifier
+of the order created. | | email* | string | Email of the customer | |
+customer_id* | string | The id of the customer to be fetched | | contact* |
+string | Contact number of the customer | | notes | array | A key-value pair | |
+description | string | Descriptive text of the payment. | | save | boolean |
+Specifies if the VPA should be stored as tokens.Possible value is `True`,
+`False` | | callback_url | string | URL where Razorpay will submit the final
+payment status. | | ip* | string | The client's browser IP address. For example
+`117.217.74.98` | | referer* | string | Value of `referer` header passed by the
+client's browser. For example, `https://example.com/` | | user_agent* | string |
+Value of `user_agent` header passed by the client's browser. For example,
+`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36`
+| | upi* (for Upi only) | array | All keys listed
+[here](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/intent/#step-2-initiate-a-payment)
+are supported |
 
 **Response:** <br>
-```json
+
+````json
 {
   "razorpay_payment_id": "pay_CMeM6XvOPGFiF",
   "link": "upi://pay?pa=success@razorpay&pn=xyz&tr=xxxxxxxxxxx&tn=gourav&am=1&cu=INR&mc=xyzw"
-}  
+}
 -------------------------------------------------------------------------------------------------------
 ### OTP Generate
 
 ```py
 client.payment.otpGenerate(paymentId)
-```
+````
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| paymentId*    | integer | Unique identifier of the payment                                               |
+| Name        | Type    | Description                      |
+| ----------- | ------- | -------------------------------- |
+| paymentId\* | integer | Unique identifier of the payment |
 
-Doc reference [doc](https://razorpay.com/docs/payments/payment-gateway/s2s-integration/json/v2/build-integration/cards/#otp-generation-)
+Doc reference
+[doc](https://razorpay.com/docs/payments/payment-gateway/s2s-integration/json/v2/build-integration/cards/#otp-generation-)
 
 **Response:** <br>
 
 ```json
 {
- "razorpay_payment_id": "pay_FVmAstJWfsD3SO",
- "next": [
-  {
-   "action": "otp_submit",
-   "url": "https://api.razorpay.com/v1/payments/pay_FVmAstJWfsD3SO/otp_submit/ac2d415a8be7595de09a24b41661729fd9028fdc?key_id=<YOUR_KEY_ID>"
-  },
-  {
-   "action": "otp_resend",
-   "url": "https://api.razorpay.com/v1/payments/pay_FVmAstJWfsD3SO/otp_resend/json?key_id=<YOUR_KEY_ID>"
+  "razorpay_payment_id": "pay_FVmAstJWfsD3SO",
+  "next": [
+    {
+      "action": "otp_submit",
+      "url": "https://api.razorpay.com/v1/payments/pay_FVmAstJWfsD3SO/otp_submit/ac2d415a8be7595de09a24b41661729fd9028fdc?key_id=<YOUR_KEY_ID>"
+    },
+    {
+      "action": "otp_resend",
+      "url": "https://api.razorpay.com/v1/payments/pay_FVmAstJWfsD3SO/otp_resend/json?key_id=<YOUR_KEY_ID>"
+    }
+  ],
+  "metadata": {
+    "issuer": "HDFC",
+    "network": "MC",
+    "last4": "1111",
+    "iin": "411111"
   }
- ],
- "metadata": {
-  "issuer": "HDFC",
-  "network": "MC",
-  "last4": "1111",
-  "iin": "411111"
- }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### OTP Submit
 
 ```py
 client.payment.otpSubmit(paymentId,{
- 	"otp": "12345"
- })
+  "otp": "12345"
+})
 ```
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| paymentId*    | integer | Unique identifier of the payment                                               |
-| otp*    | string | The customer receives the OTP using their preferred notification medium - SMS or email |
+| Name        | Type    | Description                                                                            |
+| ----------- | ------- | -------------------------------------------------------------------------------------- |
+| paymentId\* | integer | Unique identifier of the payment                                                       |
+| otp\*       | string  | The customer receives the OTP using their preferred notification medium - SMS or email |
 
-Doc reference [doc](https://razorpay.com/docs/payments/payment-gateway/s2s-integration/json/v2/build-integration/cards/#response-on-submitting-otp)
+Doc reference
+[doc](https://razorpay.com/docs/payments/payment-gateway/s2s-integration/json/v2/build-integration/cards/#response-on-submitting-otp)
 
-**Response:** <br>
-Success
+**Response:** <br> Success
+
 ```json
 {
- "razorpay_payment_id": "pay_D5jmY2H6vC7Cy3",
- "razorpay_order_id": "order_9A33XWu170gUtm",
- "razorpay_signature": "9ef4dffbfd84f1318f6739a3ce19f9d85851857ae648f114332d8401e0949a3d"
+  "razorpay_payment_id": "pay_D5jmY2H6vC7Cy3",
+  "razorpay_order_id": "order_9A33XWu170gUtm",
+  "razorpay_signature": "9ef4dffbfd84f1318f6739a3ce19f9d85851857ae648f114332d8401e0949a3d"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Valid VPA (Third party validation)
 
@@ -673,14 +705,17 @@ client.payment.validateVpa({
 })
 ```
 
-**Parameters:**
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| vpa*          | string | The virtual payment address (VPA) you want to validate. For example,   `gauravkumar@exampleupi`  |
+**Parameters:** | Name | Type | Description |
+|-------------|---------|--------------------------------------| | vpa\* |
+string | The virtual payment address (VPA) you want to validate. For example,
+`gauravkumar@exampleupi` |
 
- please refer this [doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/collect#step-13-validate-the-vpa) for params
+please refer this
+[doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/collect#step-13-validate-the-vpa)
+for params
 
 **Response:** <br>
+
 ```json
 {
   "vpa": "gauravkumar@exampleupi",
@@ -688,7 +723,8 @@ client.payment.validateVpa({
   "customer_name": "Gaurav Kumar"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch payment methods (Third party validation)
 
@@ -697,37 +733,38 @@ client = razorpay.Client(auth=("key", "")) // Use Only razorpay key
 client.payment.fetchPaymentMethods()
 ```
 
-**Response:** <br>
- please refer this [doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/methods-api/#fetch-payment-methods) for response
+**Response:** <br> please refer this
+[doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/methods-api/#fetch-payment-methods)
+for response
 
-```
+````
 =======
 ### OTP Resend
 
 ```py
 client.payment.otpResend(paymentId)
-```
+````
 
 **Parameters:**
 
-| Name        | Type    | Description                          |
-|-------------|---------|--------------------------------------|
-| paymentId*    | integer | Unique identifier of the payment                                               |
+| Name        | Type    | Description                      |
+| ----------- | ------- | -------------------------------- |
+| paymentId\* | integer | Unique identifier of the payment |
 
-Doc reference [doc](https://razorpay.com/docs/payments/payment-methods/cards/authentication/native-otp/#otp-resend)
+Doc reference
+[doc](https://razorpay.com/docs/payments/payment-methods/cards/authentication/native-otp/#otp-resend)
 
 **Response:** <br>
 
 ```json
 {
-  "next": [
-    "otp_submit",
-    "otp_resend"
-  ],
+  "next": ["otp_submit", "otp_resend"],
   "razorpay_payment_id": "pay_JWaNvYmrx75sXo"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Token IIN API
 
 ```py
@@ -738,11 +775,12 @@ client.iin.fetch(tokenIin)
 
 **Parameters:**
 
-| Name       | Type   | Description                       |
-|------------|--------|-----------------------------------|
-| tokenIin* | string | The token IIN. |
+| Name       | Type   | Description    |
+| ---------- | ------ | -------------- |
+| tokenIin\* | string | The token IIN. |
 
 **Response:**
+
 ```json
 {
   "iin": "412345",
@@ -755,24 +793,25 @@ client.iin.fetch(tokenIin)
   "international": false,
   "is_tokenized": true,
   "card_iin": "411111",
-  "emi":{
-     "available": true
-     },
+  "emi": {
+    "available": true
+  },
   "recurring": {
-     "available": true
-     },
+    "available": true
+  },
   "authentication_types": [
-   {
-       "type":"3ds"
-   },
-   {
-       "type":"otp"
-   }
+    {
+      "type": "3ds"
+    },
+    {
+      "type": "otp"
+    }
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
-**PN: * indicates mandatory fields**
-<br>
-<br>
+
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/payments/)**

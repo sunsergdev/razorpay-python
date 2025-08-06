@@ -1,6 +1,7 @@
 ## Funds
 
 ### Create a fund account
+
 ```py
 client.fund_account.create({
   "customer_id":"cust_Aa000000000001",
@@ -15,13 +16,14 @@ client.fund_account.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*   | string      | The id of the customer to be fetched  |
-| account_type* | string      | The bank_account to be linked to the customer ID  |
-| bank_account* | object      | All keys listed [here](https://razorpay.com/docs/payments/customers/customer-fund-account-api/#create-a-fund-account) are supported |
+| Name           | Type   | Description                                                                                                                         |
+| -------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| customerId\*   | string | The id of the customer to be fetched                                                                                                |
+| account_type\* | string | The bank_account to be linked to the customer ID                                                                                    |
+| bank_account\* | object | All keys listed [here](https://razorpay.com/docs/payments/customers/customer-fund-account-api/#create-a-fund-account) are supported |
 
 **Response:**
+
 ```json
 {
   "id": "fa_JexSeA2SS1S19D",
@@ -40,7 +42,8 @@ client.fund_account.create({
   "created_at": 1654682051
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch all fund accounts
 
@@ -50,11 +53,12 @@ client.fund_account.all({"customer_id":customerId})
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*   | string      | The id of the customer to be fetched  |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| customerId\* | string | The id of the customer to be fetched |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -95,9 +99,10 @@ client.fund_account.all({"customer_id":customerId})
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
-**For reference click [here](https://razorpay.com/docs/payments/customers/customer-fund-account-api/)**
+---
+
+**PN: \* indicates mandatory fields**
+
+**For reference click
+[here](https://razorpay.com/docs/payments/customers/customer-fund-account-api/)**

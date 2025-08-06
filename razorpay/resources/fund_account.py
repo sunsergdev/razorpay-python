@@ -1,24 +1,29 @@
-from .base import Resource
+"""FundAccount resource."""
+
+# Razorpay SDK local imports
 from ..constants.url import URL
+from .base import Resource
 
 
 class FundAccount(Resource):
+    """Resource class for handling Razorpay FundAccount APIs."""
+
     def __init__(self, client=None):
-        super(FundAccount, self).__init__(client)
+        super().__init__(client)
         self.base_url = URL.V1 + URL.FUND_ACCOUNT_URL
 
-    def all(self, data={}, **kwargs):
-        """
-        Fetch all Fund Account entities
+    def all(self, data=None, **kwargs):
+        """Fetch all Fund Account entities.
 
         Returns:
             Dictionary of Fund Account
         """
-        return super(FundAccount, self).all(data, **kwargs)
+        if data is None:
+            data = {}
+        return super().all(data, **kwargs)
 
-    def create(self, data={}, **kwargs):
-        """
-        Create a fund account
+    def create(self, data=None, **kwargs):
+        """Create a fund account.
 
         Args:
             data : Dictionary having keys using which order have to be created
@@ -29,5 +34,7 @@ class FundAccount(Resource):
         Returns:
             fund account Dict which was created
         """
+        if data is None:
+            data = {}
         url = self.base_url
-        return self.post_url(url, data, **kwargs)
+        return self.post(url, data, **kwargs)

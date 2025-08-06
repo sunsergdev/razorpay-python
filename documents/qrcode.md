@@ -20,19 +20,20 @@ client.qrcode.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| type*          | string | The type of QR code i.e, `upi_qr`/`bharat_qr`                                  |
-| name          | string | Label entered to identify the QR code.                              |
-| usage*          | string | Indicates if the QR code should be allowed to accept single payment or multiple payments i.e, `single_use`/`multiple_use`     |
-| fixed_amount          | boolean | Indicates if the QR should accept payments of specific amounts or any amount. |
-| payment_amount(* mandatory if fixed_amount is true)          | integer | Indicates if the QR should accept payments of specific amounts or any amount. |
-| customer_id          | string | Unique identifier of the customer the QR code is linked with |
-| description          | string | A brief description about the QR code. |
-| close_by          | integer | UNIX timestamp at which the QR code is scheduled to be automatically closed. The time must be at least 15 minutes after the current time.  |
-| notes          | object | Key-value pair that can be used to store additional information about the QR code. Maximum 15 key-value pairs, 256 characters (maximum) each. |
+| Name                                                 | Type    | Description                                                                                                                                   |
+| ---------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| type\*                                               | string  | The type of QR code i.e, `upi_qr`/`bharat_qr`                                                                                                 |
+| name                                                 | string  | Label entered to identify the QR code.                                                                                                        |
+| usage\*                                              | string  | Indicates if the QR code should be allowed to accept single payment or multiple payments i.e, `single_use`/`multiple_use`                     |
+| fixed_amount                                         | boolean | Indicates if the QR should accept payments of specific amounts or any amount.                                                                 |
+| payment_amount(\* mandatory if fixed_amount is true) | integer | Indicates if the QR should accept payments of specific amounts or any amount.                                                                 |
+| customer_id                                          | string  | Unique identifier of the customer the QR code is linked with                                                                                  |
+| description                                          | string  | A brief description about the QR code.                                                                                                        |
+| close_by                                             | integer | UNIX timestamp at which the QR code is scheduled to be automatically closed. The time must be at least 15 minutes after the current time.     |
+| notes                                                | object  | Key-value pair that can be used to store additional information about the QR code. Maximum 15 key-value pairs, 256 characters (maximum) each. |
 
 **Response:**
+
 ```json
 {
   "id": "qr_HMsVL8HOpbMcjU",
@@ -55,7 +56,8 @@ client.qrcode.create({
   "close_by": 1681615838
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create Qr code with GST
 
@@ -86,20 +88,21 @@ client.qrcode.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| type*          | string | The type of QR code i.e, `upi_qr`/`bharat_qr`                                  |
-| name          | string | Label entered to identify the QR code.                              |
-| usage*          | string | Indicates if the QR code should be allowed to accept single payment or multiple payments i.e, `single_use`/`multiple_use`     |
-| fixed_amount          | boolean | Indicates if the QR should accept payments of specific amounts or any amount. |
-| payment_amount(* mandatory if fixed_amount is true)          | integer | Indicates if the QR should accept payments of specific amounts or any amount. |
-| customer_id          | string | Unique identifier of the customer the QR code is linked with |
-| description          | string | A brief description about the QR code. |
-| close_by          | integer | UNIX timestamp at which the QR code is scheduled to be automatically closed. The time must be at least 15 minutes after the current time.  |
-| notes          | object | Key-value pair that can be used to store additional information about the QR code. Maximum 15 key-value pairs, 256 characters (maximum) each. |
-| tax_invoice          | object | This block contains information about the invoices. If not provided, the transaction will default to non-GST compliant UPI flow. |
+| Name                                                 | Type    | Description                                                                                                                                   |
+| ---------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| type\*                                               | string  | The type of QR code i.e, `upi_qr`/`bharat_qr`                                                                                                 |
+| name                                                 | string  | Label entered to identify the QR code.                                                                                                        |
+| usage\*                                              | string  | Indicates if the QR code should be allowed to accept single payment or multiple payments i.e, `single_use`/`multiple_use`                     |
+| fixed_amount                                         | boolean | Indicates if the QR should accept payments of specific amounts or any amount.                                                                 |
+| payment_amount(\* mandatory if fixed_amount is true) | integer | Indicates if the QR should accept payments of specific amounts or any amount.                                                                 |
+| customer_id                                          | string  | Unique identifier of the customer the QR code is linked with                                                                                  |
+| description                                          | string  | A brief description about the QR code.                                                                                                        |
+| close_by                                             | integer | UNIX timestamp at which the QR code is scheduled to be automatically closed. The time must be at least 15 minutes after the current time.     |
+| notes                                                | object  | Key-value pair that can be used to store additional information about the QR code. Maximum 15 key-value pairs, 256 characters (maximum) each. |
+| tax_invoice                                          | object  | This block contains information about the invoices. If not provided, the transaction will default to non-GST compliant UPI flow.              |
 
 **Response:**
+
 ```json
 {
   "id": "qr_HMsVL8HOpbMcjU",
@@ -131,7 +134,8 @@ client.qrcode.create({
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch all Qr code
 
@@ -141,14 +145,15 @@ client.qrcode.all()
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
+| Name  | Type      | Description                                      |
+| ----- | --------- | ------------------------------------------------ |
 | from  | timestamp | timestamp after which the payments were created  |
 | to    | timestamp | timestamp before which the payments were created |
 | count | integer   | number of payments to fetch (default: 10)        |
 | skip  | integer   | number of payments to be skipped (default: 0)    |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -180,7 +185,7 @@ client.qrcode.all()
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch a Qr code
 
@@ -190,11 +195,12 @@ client.qrcode.fetch(qrCodeId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| qrCodeId  | string | The id of the qr code to be fetched  |
+| Name     | Type   | Description                         |
+| -------- | ------ | ----------------------------------- |
+| qrCodeId | string | The id of the qr code to be fetched |
 
 **Response:**
+
 ```json
 {
   "id": "qr_HO2r1MDprYtWRT",
@@ -219,7 +225,8 @@ client.qrcode.fetch(qrCodeId)
   "close_reason": null
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch a Qr code for customer id
 
@@ -229,11 +236,12 @@ client.qrcode.fetch(qrCodeId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| customerId*  | string | The id of the customer to which qr code need to be fetched  |
+| Name         | Type   | Description                                                |
+| ------------ | ------ | ---------------------------------------------------------- |
+| customerId\* | string | The id of the customer to which qr code need to be fetched |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -265,7 +273,8 @@ client.qrcode.fetch(qrCodeId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch a Qr code for payment id
 
@@ -275,11 +284,12 @@ client.qrcode.fetch(qrCodeId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| paymentId*  | string | The id of the payment to which qr code need to be fetched  |
+| Name        | Type   | Description                                               |
+| ----------- | ------ | --------------------------------------------------------- |
+| paymentId\* | string | The id of the payment to which qr code need to be fetched |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -308,7 +318,8 @@ client.qrcode.fetch(qrCodeId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch Payments for a QR Code
 
@@ -318,15 +329,16 @@ client.qrcode.fetch_all_payments(qrCodeId, options)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| qrCodeId*  | string | The id of the qr code to which payment where made |
-| from  | timestamp | timestamp after which the payments were created  |
-| to    | timestamp | timestamp before which the payments were created |
-| count | integer   | number of payments to fetch (default: 10)        |
-| skip  | integer   | number of payments to be skipped (default: 0)    |
+| Name       | Type      | Description                                       |
+| ---------- | --------- | ------------------------------------------------- |
+| qrCodeId\* | string    | The id of the qr code to which payment where made |
+| from       | timestamp | timestamp after which the payments were created   |
+| to         | timestamp | timestamp before which the payments were created  |
+| count      | integer   | number of payments to fetch (default: 10)         |
+| skip       | integer   | number of payments to be skipped (default: 0)     |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -369,7 +381,8 @@ client.qrcode.fetch_all_payments(qrCodeId, options)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Close a QR Code
 
@@ -379,11 +392,12 @@ client.qrcode.close(qrCodeId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| qrCodeId*  | string | The id of the qr code to be closed |
+| Name       | Type   | Description                        |
+| ---------- | ------ | ---------------------------------- |
+| qrCodeId\* | string | The id of the qr code to be closed |
 
 **Response:**
+
 ```json
 {
   "id": "qr_HMsVL8HOpbMcjU",
@@ -408,7 +422,8 @@ client.qrcode.close(qrCodeId)
   "close_reason": "on_demand"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Refund a Payment
 
@@ -424,13 +439,14 @@ client.payment.refund("pay_JRP3Y66cNcf2qF",{
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| paymentId*  | string | The id of the payment to be refunded |
-| amount  | string | Amount to be refunded |
-| notes       | array | Key-value pair that can be used to store additional information about the QR code. Maximum 15 key-value pairs, 256 characters (maximum) each. |
+| Name        | Type   | Description                                                                                                                                   |
+| ----------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| paymentId\* | string | The id of the payment to be refunded                                                                                                          |
+| amount      | string | Amount to be refunded                                                                                                                         |
+| notes       | array  | Key-value pair that can be used to store additional information about the QR code. Maximum 15 key-value pairs, 256 characters (maximum) each. |
 
 **Response:**
+
 ```json
 {
   "id": "rfnd_FP8QHiV938haTz",
@@ -451,9 +467,9 @@ client.payment.refund("pay_JRP3Y66cNcf2qF",{
   "speed_requested": "normal"
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/qr-codes/)**

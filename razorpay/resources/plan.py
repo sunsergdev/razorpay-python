@@ -1,15 +1,19 @@
-from .base import Resource
+"""Plan resource."""
+
+# Razorpay SDK local imports
 from ..constants.url import URL
+from .base import Resource
 
 
 class Plan(Resource):
+    """Resource class for handling Razorpay Plan APIs."""
+
     def __init__(self, client=None):
-        super(Plan, self).__init__(client)
+        super().__init__(client)
         self.base_url = URL.V1 + URL.PLAN_URL
 
-    def create(self, data={}, **kwargs):
-        """
-        Create Plan from given dict
+    def create(self, data=None, **kwargs):
+        """Create Plan from given dict.
 
         Args:
             data : Dictionary having keys using which Plan has to be created
@@ -17,12 +21,13 @@ class Plan(Resource):
         Returns:
             Plan Dict which was created
         """
+        if data is None:
+            data = {}
         url = self.base_url
-        return self.post_url(url, data, **kwargs)
+        return self.post(url, data, **kwargs)
 
-    def fetch(self, plan_id, data={}, **kwargs):
-        """
-        Fetch Plan for given Id
+    def fetch(self, plan_id, data=None, **kwargs):
+        """Fetch Plan for given Id.
 
         Args:
             plan_id : Id for which Plan object has to be retrieved
@@ -30,13 +35,16 @@ class Plan(Resource):
         Returns:
             Plan dict for given subscription Id
         """
-        return super(Plan, self).fetch(plan_id, data, **kwargs)
+        if data is None:
+            data = {}
+        return super().fetch(plan_id, data, **kwargs)
 
-    def all(self, data={}, **kwargs):
-        """
-        Fetch all plan entities
+    def all(self, data=None, **kwargs):
+        """Fetch all plan entities.
 
         Returns:
             Dictionary of plan data
         """
-        return super(Plan, self).all(data, **kwargs)
+        if data is None:
+            data = {}
+        return super().all(data, **kwargs)

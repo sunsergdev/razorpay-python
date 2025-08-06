@@ -1,15 +1,17 @@
-import responses
 import json
 
-from .helpers import ClientTestCase
+import responses
+
 from razorpay.errors import BadRequestError, GatewayError, ServerError
+
+from .helpers import ClientTestCase
 
 
 class TestClientError(ClientTestCase):
 
     def setUp(self):
         super(TestClientError, self).setUp()
-        self.base_url = '{}/payments'.format(self.base_url)
+        self.base_url = f'{self.base_url}/payments'
 
     @responses.activate
     def test_payment_with_invalid_options(self):
@@ -23,7 +25,7 @@ class TestClientError(ClientTestCase):
             }
         }
 
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET, url, status=400, body=json.dumps(result),
                       match_querystring=True)
         self.assertRaises(
@@ -42,7 +44,7 @@ class TestClientError(ClientTestCase):
             }
         }
 
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET, url, status=504, body=json.dumps(result),
                       match_querystring=True)
         self.assertRaises(
@@ -61,7 +63,7 @@ class TestClientError(ClientTestCase):
             }
         }
 
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET, url, status=500, body=json.dumps(result),
                       match_querystring=True)
         self.assertRaises(
@@ -80,7 +82,7 @@ class TestClientError(ClientTestCase):
             }
         }
 
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET, url, status=500, body=json.dumps(result),
                       match_querystring=True)
         self.assertRaises(

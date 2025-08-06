@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientSubscription(ClientTestCase):
 
     def setUp(self):
         super(TestClientSubscription, self).setUp()
-        self.base_url = '{}/subscriptions'.format(self.base_url)
+        self.base_url = f'{self.base_url}/subscriptions'
         self.subscription_id = 'sub_8RlLljfA4AnDVx'
 
     @responses.activate
@@ -41,7 +42,7 @@ class TestClientSubscription(ClientTestCase):
     @responses.activate
     def test_subscription_cancel(self):
         result = mock_file('fake_subscription_cancelled')
-        url = '{}/{}/cancel'.format(self.base_url, self.subscription_id)
+        url = f'{self.base_url}/{self.subscription_id}/cancel'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         response = json.loads(
@@ -53,7 +54,7 @@ class TestClientSubscription(ClientTestCase):
     @responses.activate
     def test_subscription_cancel_scheduled_changes(self):
         result = mock_file('fake_subscription_resumed')
-        url = '{}/{}/cancel_scheduled_changes'.format(self.base_url, self.subscription_id)
+        url = f'{self.base_url}/{self.subscription_id}/cancel_scheduled_changes'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         response = json.loads(
@@ -64,7 +65,7 @@ class TestClientSubscription(ClientTestCase):
     @responses.activate
     def test_subscription_create_addon(self):
         result = mock_file('fake_subscription_addon')
-        url = '{}/{}/addons'.format(self.base_url, self.subscription_id)
+        url = f'{self.base_url}/{self.subscription_id}/addons'
         responses.add(responses.POST,
                       url,
                       status=200,
@@ -106,7 +107,7 @@ class TestClientSubscription(ClientTestCase):
     @responses.activate
     def test_subscription_pause(self):
         result = mock_file('fake_subscription_paused')
-        url = '{}/{}/pause'.format(self.base_url, self.subscription_id)
+        url = f'{self.base_url}/{self.subscription_id}/pause'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         response = json.loads(
@@ -118,7 +119,7 @@ class TestClientSubscription(ClientTestCase):
     @responses.activate
     def test_subscription_resume(self):
         result = mock_file('fake_subscription_resumed')
-        url = '{}/{}/resume'.format(self.base_url, self.subscription_id)
+        url = f'{self.base_url}/{self.subscription_id}/resume'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         response = json.loads(

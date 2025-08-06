@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientFundAccount(ClientTestCase):
 
     def setUp(self):
         super(TestClientFundAccount, self).setUp()
-        self.base_url = '{}/fund_accounts'.format(self.base_url)
+        self.base_url = f'{self.base_url}/fund_accounts'
 
     @responses.activate
     def test_all(self):

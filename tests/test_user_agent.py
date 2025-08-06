@@ -1,7 +1,8 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientUserAgent(ClientTestCase):
@@ -10,7 +11,7 @@ class TestClientUserAgent(ClientTestCase):
         super(TestClientUserAgent, self).setUp()
         app_details = json.loads(mock_file('fake_app_details'))
         self.client.set_app_details(app_details)
-        self.base_url = "{}/payments".format(self.base_url)
+        self.base_url = f"{self.base_url}/payments"
 
     @responses.activate
     def test_payment_all(self):

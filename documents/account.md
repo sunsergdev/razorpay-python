@@ -1,6 +1,7 @@
 ## Account
 
 ### Create an Account
+
 ```py
 client.account.create({
   "email": "gauriagain.kumar@example.org",
@@ -78,24 +79,24 @@ client.account.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| email*        | string      | The sub-merchant's business email address.  |
-| phone*          | integer      | The sub-merchant's business phone number. The minimum length is 8 characters and the maximum length is 15.                       |
-| legal_business_name*      | string | The name of the sub-merchant's business. For example, Acme Corp. The minimum length is 4 characters and the maximum length is 200.          |
-| customer_facing_business_name | string | The sub-merchant billing label as it appears on the Razorpay Dashboard. The minimum length is 1 character and the maximum length is 255. |
-| business_type         | string      | The type of business operated by the sub-merchant.Possible value is `proprietorship`, `partnership`, `private_limited`, `public_limited`, `llp`, `ngo`, `trust`, `society`, `not_yet_registered`, `huf` |
-| reference_id         | string      |  Partner's external account reference id. The minimum length is 1 character and the maximum length is 512. |
-| profile         | object      | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported |         
-| legal_info         | object      | All keys listed [here](hhttps://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported |
-| brand         | object      | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported |
-| notes | object  | A key-value pair  |
-| contact_name* | string  | The name of the contact. The minimum length is 4 and the maximum length is 255 characters. |
-| contact_info | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported |     
-| apps | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported |     
-
+| Name                          | Type    | Description                                                                                                                                                                                             |
+| ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| email\*                       | string  | The sub-merchant's business email address.                                                                                                                                                              |
+| phone\*                       | integer | The sub-merchant's business phone number. The minimum length is 8 characters and the maximum length is 15.                                                                                              |
+| legal_business_name\*         | string  | The name of the sub-merchant's business. For example, Acme Corp. The minimum length is 4 characters and the maximum length is 200.                                                                      |
+| customer_facing_business_name | string  | The sub-merchant billing label as it appears on the Razorpay Dashboard. The minimum length is 1 character and the maximum length is 255.                                                                |
+| business_type                 | string  | The type of business operated by the sub-merchant.Possible value is `proprietorship`, `partnership`, `private_limited`, `public_limited`, `llp`, `ngo`, `trust`, `society`, `not_yet_registered`, `huf` |
+| reference_id                  | string  | Partner's external account reference id. The minimum length is 1 character and the maximum length is 512.                                                                                               |
+| profile                       | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported                                                                                      |
+| legal_info                    | object  | All keys listed [here](hhttps://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported                                                                                     |
+| brand                         | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported                                                                                      |
+| notes                         | object  | A key-value pair                                                                                                                                                                                        |
+| contact_name\*                | string  | The name of the contact. The minimum length is 4 and the maximum length is 255 characters.                                                                                                              |
+| contact_info                  | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported                                                                                      |
+| apps                          | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#create-an-account) are supported                                                                                      |
 
 **Response:**
+
 ```json
 {
   "id": "acc_GRWKk7qQsLnDjX",
@@ -138,9 +139,7 @@ client.account.create({
     "gst": "18AABCU9603R1ZM"
   },
   "apps": {
-    "websites": [
-      "https://www.example.org"
-    ],
+    "websites": ["https://www.example.org"],
     "android": [
       {
         "url": "playstore.example.org",
@@ -177,7 +176,7 @@ client.account.create({
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Edit Account
 
@@ -191,20 +190,21 @@ client.account.edit(accountId,{
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| phone          | integer      | The sub-merchant's business phone number. The minimum length is 8 characters and the maximum length is 15.                       |
-| legal_business_name      | string | The name of the sub-merchant's business. For example, Acme Corp. The minimum length is 4 characters and the maximum length is 200.          |
-| customer_facing_business_name | string | The sub-merchant billing label as it appears on the Razorpay Dashboard. The minimum length is 1 character and the maximum length is 255. |
-| profile         | object      | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported |         
-| legal_info         | object      | All keys listed [here](hhttps://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported |
-| brand         | object      | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported |
-| notes | object  | A key-value pair  |
-| contact_name* | string  | The name of the contact. The minimum length is 4 and the maximum length is 255 characters. |
-| contact_info | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported |     
-| apps | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported |     
+| Name                          | Type    | Description                                                                                                                              |
+| ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| phone                         | integer | The sub-merchant's business phone number. The minimum length is 8 characters and the maximum length is 15.                               |
+| legal_business_name           | string  | The name of the sub-merchant's business. For example, Acme Corp. The minimum length is 4 characters and the maximum length is 200.       |
+| customer_facing_business_name | string  | The sub-merchant billing label as it appears on the Razorpay Dashboard. The minimum length is 1 character and the maximum length is 255. |
+| profile                       | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported                       |
+| legal_info                    | object  | All keys listed [here](hhttps://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported                      |
+| brand                         | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported                       |
+| notes                         | object  | A key-value pair                                                                                                                         |
+| contact_name\*                | string  | The name of the contact. The minimum length is 4 and the maximum length is 255 characters.                                               |
+| contact_info                  | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported                       |
+| apps                          | object  | All keys listed [here](https://razorpay.com/docs/api/partners/account-onboarding/#update-an-account) are supported                       |
 
 **Response:**
+
 ```json
 {
   "id": "acc_GP4lfNA0iIMn5B",
@@ -234,9 +234,11 @@ client.account.edit(accountId,{
   "customer_facing_business_name": "ABCD Ltd"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Delete an account
+
 ```py
 accountId = "acc_GP4lfNA0iIMn5B"
 
@@ -245,11 +247,12 @@ client.account.delete(accountId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| accountId* | string   | The unique identifier of a sub-merchant account that must be deleted.  |
+| Name        | Type   | Description                                                           |
+| ----------- | ------ | --------------------------------------------------------------------- |
+| accountId\* | string | The unique identifier of a sub-merchant account that must be deleted. |
 
 **Response:**
+
 ```json
 {
   "id": "acc_GXQAkO2MrvBYg4",
@@ -294,9 +297,7 @@ client.account.delete(accountId)
     "gst": "18AABCU9603R1ZM"
   },
   "apps": {
-    "websites": [
-      "https://www.acme.org"
-    ],
+    "websites": ["https://www.acme.org"],
     "android": [
       {
         "url": "playstore.acme.org",
@@ -334,9 +335,10 @@ client.account.delete(accountId)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch an account
+
 ```py
 accountId = "acc_GP4lfNA0iIMn5B"
 
@@ -345,11 +347,12 @@ client.account.fetch(accountId)
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| accountId* | string      | The unique identifier of a sub-merchant account generated by Razorpay.  |
+| Name        | Type   | Description                                                            |
+| ----------- | ------ | ---------------------------------------------------------------------- |
+| accountId\* | string | The unique identifier of a sub-merchant account generated by Razorpay. |
 
 **Response:**
+
 ```json
 {
   "id": "acc_GP4lfNA0iIMn5B",
@@ -380,9 +383,10 @@ client.account.fetch(accountId)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Upload account documents
+
 ```py
 accountId = "acc_M83Uw27KXuC7c8"
 
@@ -396,13 +400,14 @@ client.account.uploadAccountDoc(accountId, {
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| accountId* | string      | The unique identifier of a sub-merchant account generated by Razorpay.  |
-| file* | string      | The URL generated once the business proof document is uploaded.  |
-| document_type* | string      | The documents valid for the proof type to be shared. Possible values : <br> business_proof_of_identification: `shop_establishment_certificate`, `gst_certificate`, `msme_certificate`, `business_proof_url`, `business_pan_url`, <br><br> additional_documents : `form_12_a_url`, `form_80g_url`, `cancelled_cheque`  |
+| Name            | Type   | Description                                                                                                                                                                                                                                                                                                          |
+| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountId\*     | string | The unique identifier of a sub-merchant account generated by Razorpay.                                                                                                                                                                                                                                               |
+| file\*          | string | The URL generated once the business proof document is uploaded.                                                                                                                                                                                                                                                      |
+| document_type\* | string | The documents valid for the proof type to be shared. Possible values : <br> business_proof_of_identification: `shop_establishment_certificate`, `gst_certificate`, `msme_certificate`, `business_proof_url`, `business_pan_url`, <br><br> additional_documents : `form_12_a_url`, `form_80g_url`, `cancelled_cheque` |
 
 **Response:**
+
 ```json
 {
   "business_proof_of_identification": [
@@ -413,9 +418,11 @@ client.account.uploadAccountDoc(accountId, {
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch account documents
+
 ```py
 accountId = "acc_LryDIBIjBDbOWy"
 
@@ -424,11 +431,12 @@ client.account.fetchAccountDoc(accountId)
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| accountId* | string      | The unique identifier of a sub-merchant account generated by Razorpay.  |
+| Name        | Type   | Description                                                            |
+| ----------- | ------ | ---------------------------------------------------------------------- |
+| accountId\* | string | The unique identifier of a sub-merchant account generated by Razorpay. |
 
 **Response:**
+
 ```json
 {
   "business_proof_of_identification": [
@@ -439,8 +447,10 @@ client.account.fetchAccountDoc(accountId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
-**PN: * indicates mandatory fields**
-<br>
-<br>
-**For reference click [here](https://razorpay.com/docs/api/partners/account-onboarding/)**
+
+---
+
+**PN: \* indicates mandatory fields**
+
+**For reference click
+[docs](https://razorpay.com/docs/api/partners/account-onboarding/)**

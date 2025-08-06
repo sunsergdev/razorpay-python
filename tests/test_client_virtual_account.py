@@ -1,14 +1,15 @@
 import unittest
+
 import responses
-import json
-from .helpers import mock_file, ClientTestCase
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientVirtualAccount(ClientTestCase):
 
     def setUp(self):
         super(TestClientVirtualAccount, self).setUp()
-        self.base_url = '{}/virtual_accounts'.format(self.base_url)
+        self.base_url = f'{self.base_url}/virtual_accounts'
         self.fake_virtual_account_id = 'va_4xbQrmEoA5WJ0G'
 
     @responses.activate
@@ -44,7 +45,7 @@ class TestClientVirtualAccount(ClientTestCase):
     def test_virtual_accounts_all_with_options(self):
         count = 1
         result = mock_file('virtual_accounts_collection_with_one_item')
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET,
                       url,
                       status=200,
@@ -58,7 +59,7 @@ class TestClientVirtualAccount(ClientTestCase):
     @responses.activate
     def test_virtual_accounts_fetch(self):
         result = mock_file('fake_virtual_accounts')
-        url = '{}/{}'.format(self.base_url, self.fake_virtual_account_id)
+        url = f'{self.base_url}/{self.fake_virtual_account_id}'
         responses.add(responses.GET,
                       url,
                       status=200,
@@ -74,7 +75,7 @@ class TestClientVirtualAccount(ClientTestCase):
     @responses.activate
     def test_virtual_accounts_close(self):
         result = mock_file('fake_virtual_accounts_closed')
-        url = '{}/{}/close'.format(self.base_url, self.fake_virtual_account_id)
+        url = f'{self.base_url}/{self.fake_virtual_account_id}/close'
         responses.add(responses.POST,
                       url,
                       status=200,
@@ -90,9 +91,7 @@ class TestClientVirtualAccount(ClientTestCase):
     @responses.activate
     def test_virtual_accounts_payments(self):
         result = mock_file('payment_collection')
-        url = '{}/{}/payments'.format(
-            self.base_url,
-            self.fake_virtual_account_id)
+        url = f'{self.base_url}/{self.fake_virtual_account_id}/payments'
         responses.add(responses.GET,
                       url,
                       status=200,
@@ -115,7 +114,7 @@ class TestClientVirtualAccount(ClientTestCase):
                    }
                 }
         result = mock_file('fake_virtual_accounts_closed')
-        url = "{}/{}/receivers".format(self.base_url, self.fake_virtual_account_id)
+        url = f"{self.base_url}/{self.fake_virtual_account_id}/receivers"
         responses.add(responses.POST,
                       url,
                       status=200,
@@ -137,7 +136,7 @@ class TestClientVirtualAccount(ClientTestCase):
                     }
                 }
         result = mock_file('fake_virtual_accounts_closed')
-        url = "{}/{}/allowed_payers".format(self.base_url, self.fake_virtual_account_id)
+        url = f"{self.base_url}/{self.fake_virtual_account_id}/allowed_payers"
         responses.add(responses.POST,
                       url,
                       status=200,
@@ -160,6 +159,6 @@ class TestClientVirtualAccount(ClientTestCase):
                       body=result,
                       match_querystring=True)
         response = self.client.virtual_account.delete_allowed_player(
-        self.fake_virtual_account_id, 'fake_allowed_player_id');   
+        self.fake_virtual_account_id, 'fake_allowed_player_id')   
         self.assertEqual(response, result)
           

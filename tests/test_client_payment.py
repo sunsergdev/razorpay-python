@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientPayment(ClientTestCase):
 
     def setUp(self):
         super(TestClientPayment, self).setUp()
-        self.base_url = '{}/payments'.format(self.base_url)
+        self.base_url = f'{self.base_url}/payments'
 
     @responses.activate
     def test_payment_all(self):
@@ -22,7 +23,7 @@ class TestClientPayment(ClientTestCase):
     def test_payment_all_with_options(self):
         count = 1
         result = mock_file('payment_collection_with_one_payment')
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.payment.all({'count': count}), result)
@@ -30,7 +31,7 @@ class TestClientPayment(ClientTestCase):
     @responses.activate
     def test_payment_fetch(self):
         result = mock_file('fake_payment')
-        url = '{}/{}'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.payment.fetch('fake_payment_id'), result)
@@ -38,7 +39,7 @@ class TestClientPayment(ClientTestCase):
     @responses.activate
     def test_payment_capture(self):
         result = mock_file('fake_captured_payment')
-        url = '{}/{}/capture'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}/capture'
         responses.add(responses.POST, url, status=200,
                       body=json.dumps(result), match_querystring=True)
         self.assertEqual(self.client.payment.capture(self.payment_id,
@@ -47,7 +48,7 @@ class TestClientPayment(ClientTestCase):
     @responses.activate
     def test_refund_create(self):
         result = mock_file('fake_refund')
-        url = '{}/{}/refund'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}/refund'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.payment.refund(self.payment_id, 2000),
@@ -65,7 +66,7 @@ class TestClientPayment(ClientTestCase):
             }
         }
         result = mock_file('transfers_collection_with_payment_id')
-        url = '{}/{}/transfers'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}/transfers'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.payment.transfer(self.payment_id, param),
@@ -74,7 +75,7 @@ class TestClientPayment(ClientTestCase):
     @responses.activate
     def test_transfer_fetch(self):
         result = mock_file('transfers_collection_with_payment_id')
-        url = '{}/{}/transfers'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}/transfers'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.payment.transfers(self.payment_id), result)
@@ -82,7 +83,7 @@ class TestClientPayment(ClientTestCase):
     @responses.activate
     def test_bank_transfer_fetch(self):
         result = mock_file('fake_bank_transfer')
-        url = '{}/{}/bank_transfer'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}/bank_transfer'
         responses.add(responses.GET,
                       url,
                       status=200,
@@ -96,7 +97,7 @@ class TestClientPayment(ClientTestCase):
     @responses.activate
     def test_upi_transfer_fetch(self):
         result = mock_file('fake_upi_transfer')
-        url = '{}/{}/upi_transfer'.format(self.base_url, self.payment_id)
+        url = f'{self.base_url}/{self.payment_id}/upi_transfer'
         responses.add(responses.GET,
                       url,
                       status=200,

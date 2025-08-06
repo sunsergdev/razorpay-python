@@ -10,11 +10,12 @@ client.iin.fetch(tokenIin)
 
 **Parameters:**
 
-| Name       | Type   | Description                       |
-|------------|--------|-----------------------------------|
-| tokenIin* | string | The token IIN. |
+| Name       | Type   | Description    |
+| ---------- | ------ | -------------- |
+| tokenIin\* | string | The token IIN. |
 
 **Response:**
+
 ```json
 {
   "iin": "412345",
@@ -27,23 +28,24 @@ client.iin.fetch(tokenIin)
   "international": false,
   "is_tokenized": true,
   "card_iin": "411111",
-  "emi":{
-     "available": true
-     },
+  "emi": {
+    "available": true
+  },
   "recurring": {
-     "available": true
-     },
+    "available": true
+  },
   "authentication_types": [
-   {
-       "type":"3ds"
-   },
-   {
-       "type":"otp"
-   }
+    {
+      "type": "3ds"
+    },
+    {
+      "type": "otp"
+    }
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch All IINs Supporting Native OTP
 
@@ -53,11 +55,12 @@ client.iin.all({"flow":"otp"})
 
 **Parameters:**
 
-| Name       | Type   | Description                       |
-|------------|--------|-----------------------------------|
+| Name | Type   | Description                                                 |
+| ---- | ------ | ----------------------------------------------------------- |
 | flow | string | Authentication flow is Native OTP. Possible value is `otp`. |
 
 **Response:**
+
 ```json
 {
   "count": 24,
@@ -74,7 +77,8 @@ client.iin.all({"flow":"otp"})
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch All IINs with Business Sub-type
 
@@ -84,11 +88,12 @@ client.iin.all({"sub_type":"business"})
 
 **Parameters:**
 
-| Name       | Type   | Description                       |
-|------------|--------|-----------------------------------|
+| Name     | Type   | Description                                            |
+| -------- | ------ | ------------------------------------------------------ |
 | sub_type | string | The sub_type of the IIN. Possible value is `business`. |
 
 **Response:**
+
 ```json
 {
   "count": 24,
@@ -109,9 +114,10 @@ client.iin.all({"sub_type":"business"})
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
-**For reference click [here](https://razorpay.com/docs/api/payments/cards/iin-api/#iin-entity)**
+---
+
+**PN: \* indicates mandatory fields**
+
+**For reference click
+[here](https://razorpay.com/docs/api/payments/cards/iin-api/#iin-entity)**

@@ -1,16 +1,17 @@
-import responses
 import json
+
+import responses
 
 from razorpay.constants.url import URL
 
-from .helpers import mock_file, ClientTestCase
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientProduct(ClientTestCase):
 
     def setUp(self):
         super(TestClientProduct, self).setUp()
-        self.base_url = '{}/accounts'.format(self.base_url_v2)
+        self.base_url = f'{self.base_url_v2}/accounts'
         self.account_id = 'acc_GRWKk7qQsLnDjX'
         self.product_id = 'acc_prd_HEgNpywUFctQ9e'
 
@@ -22,7 +23,7 @@ class TestClientProduct(ClientTestCase):
             "ip": "233.233.233.234"
         }
         result = mock_file('fake_product')
-        url = '{}/{}{}'.format(self.base_url, self.account_id, URL.PRODUCT)
+        url = f'{self.base_url}/{self.account_id}{URL.PRODUCT}'
 
         responses.add(responses.POST,
                       url,
@@ -36,8 +37,7 @@ class TestClientProduct(ClientTestCase):
     @responses.activate
     def test_product_fetch(self):
         result = mock_file('fake_product')
-        url = '{}/{}{}/{}'.format(self.base_url,
-                                  self.account_id, URL.PRODUCT, self.product_id)
+        url = f'{self.base_url}/{self.account_id}{URL.PRODUCT}/{self.product_id}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.product.fetch(
@@ -68,8 +68,7 @@ class TestClientProduct(ClientTestCase):
         }
 
         result = mock_file('fake_account')
-        url = '{}/{}{}/{}'.format(self.base_url,
-                                  self.account_id, URL.PRODUCT, self.product_id)
+        url = f'{self.base_url}/{self.account_id}{URL.PRODUCT}/{self.product_id}'
 
         responses.add(responses.PATCH, url, status=200, body=json.dumps(result),
                       match_querystring=True)
@@ -91,7 +90,7 @@ class TestClientProduct(ClientTestCase):
         }
         product_name = "payments"
 
-        url = '{}{}/{}{}'.format(self.base_url_v2, URL.PRODUCT, product_name, URL.TNC )
+        url = f'{self.base_url_v2}{URL.PRODUCT}/{product_name}{URL.TNC}'
 
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                         match_querystring=True)

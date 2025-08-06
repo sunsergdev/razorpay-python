@@ -1,7 +1,8 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientRegistrationLink(ClientTestCase):

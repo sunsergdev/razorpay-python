@@ -13,14 +13,15 @@ client.item.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| name*          | string | Name of the item.                    |
-| description        | string  | A brief description of the item.  |
-| amount*         | integer  | Amount of the order to be paid     |
-| currency*           | string  | Currency of the order. Currently only `INR` is supported.    |
+| Name        | Type    | Description                                               |
+| ----------- | ------- | --------------------------------------------------------- |
+| name\*      | string  | Name of the item.                                         |
+| description | string  | A brief description of the item.                          |
+| amount\*    | integer | Amount of the order to be paid                            |
+| currency\*  | string  | Currency of the order. Currently only `INR` is supported. |
 
 **Response:**
+
 ```json
 {
   "id": "item_JnQ2kRGq8Kbte3",
@@ -42,24 +43,26 @@ client.item.create({
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch all items
 
 ```py
 client.item.all(options)
 ```
+
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| from  | timestamp | timestamp after which the item were created  |
-| to    | timestamp | timestamp before which the item were created |
-| count | integer   | number of item to fetch (default: 10)        |
-| skip  | integer   | number of item to be skipped (default: 0)    |
-| active  | integer   | Fetches number of active or inactive items. The value is `1` for active items and `0` for inactive items. |
+| Name   | Type      | Description                                                                                               |
+| ------ | --------- | --------------------------------------------------------------------------------------------------------- |
+| from   | timestamp | timestamp after which the item were created                                                               |
+| to     | timestamp | timestamp before which the item were created                                                              |
+| count  | integer   | number of item to fetch (default: 10)                                                                     |
+| skip   | integer   | number of item to be skipped (default: 0)                                                                 |
+| active | integer   | Fetches number of active or inactive items. The value is `1` for active items and `0` for inactive items. |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -86,19 +89,23 @@ client.item.all(options)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Fetch particular item
 
 ```py
 client.item.fetch(itemId)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| itemId* | string | The id of the item to be fetched |
+| Name     | Type   | Description                      |
+| -------- | ------ | -------------------------------- |
+| itemId\* | string | The id of the item to be fetched |
 
 **Response:**
+
 ```json
 {
   "id": "item_JnQ2kRGq8Kbte3",
@@ -120,7 +127,7 @@ client.item.fetch(itemId)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Update item
 
@@ -133,18 +140,20 @@ client.item.edit(itemId,{
   "active": True
 })
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| itemId* | string | The id of the item to be fetched |
-| name       | string | Name of the item.                    |
-| description  | string  | A brief description of the item.  |
-| amount         | integer  | Amount of the order to be paid     |
-| currency           | string  | Currency of the order. Currently only `INR` is supported.    |
-| active   | boolean  | Possible values is `0` or `1` |
+| Name        | Type    | Description                                               |
+| ----------- | ------- | --------------------------------------------------------- |
+| itemId\*    | string  | The id of the item to be fetched                          |
+| name        | string  | Name of the item.                                         |
+| description | string  | A brief description of the item.                          |
+| amount      | integer | Amount of the order to be paid                            |
+| currency    | string  | Currency of the order. Currently only `INR` is supported. |
+| active      | boolean | Possible values is `0` or `1`                             |
 
 **Response:**
+
 ```json
 {
   "id": "item_JnQ2kRGq8Kbte3",
@@ -165,25 +174,29 @@ client.item.edit(itemId,{
   "created_at": 1656529427
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Delete item
 
 ```py
 client.item.delete(itemId)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| itemId* | string | The id of the item to be fetched |
+| Name     | Type   | Description                      |
+| -------- | ------ | -------------------------------- |
+| itemId\* | string | The id of the item to be fetched |
 
 **Response:**
+
 ```json
 []
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/items)**

@@ -27,19 +27,20 @@ client.subscription.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| plan_id*          | string | The unique identifier for a plan that should be linked to the subscription.|
-| total_count*   | string | The number of billing cycles for which the customer should be charged  |
-| customer_notify    | boolean | Indicates whether the communication to the customer would be handled by you or us |
-| quantity      | integer | The number of times the customer should be charged the plan amount per invoice |
-| start_at    | integer | The timestamp, in Unix format, for when the subscription should start. If not passed, the subscription starts immediately after the authorization payment. |
-| expire_by    | integer | The timestamp, in Unix format, till when the customer can make the authorization payment. |
-| addons    | array  | All parameters listed [here](https://razorpay.com/docs/api/payments/subscriptions/#create-a-subscription) are supported |
-| notes          | array | Notes you can enter for the contact for future reference.   |
-| offer_id   | string | The unique identifier of the offer that is linked to the subscription. |
+| Name            | Type    | Description                                                                                                                                                |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| plan_id\*       | string  | The unique identifier for a plan that should be linked to the subscription.                                                                                |
+| total_count\*   | string  | The number of billing cycles for which the customer should be charged                                                                                      |
+| customer_notify | boolean | Indicates whether the communication to the customer would be handled by you or us                                                                          |
+| quantity        | integer | The number of times the customer should be charged the plan amount per invoice                                                                             |
+| start_at        | integer | The timestamp, in Unix format, for when the subscription should start. If not passed, the subscription starts immediately after the authorization payment. |
+| expire_by       | integer | The timestamp, in Unix format, till when the customer can make the authorization payment.                                                                  |
+| addons          | array   | All parameters listed [here](https://razorpay.com/docs/api/payments/subscriptions/#create-a-subscription) are supported                                    |
+| notes           | array   | Notes you can enter for the contact for future reference.                                                                                                  |
+| offer_id        | string  | The unique identifier of the offer that is linked to the subscription.                                                                                     |
 
 **Response:**
+
 ```json
 {
   "id": "sub_00000000000001",
@@ -50,9 +51,9 @@ client.subscription.create({
   "current_end": null,
   "ended_at": null,
   "quantity": 1,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
   "charge_at": 1580453311,
   "start_at": 1580626111,
@@ -67,11 +68,12 @@ client.subscription.create({
   "has_scheduled_changes": false,
   "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
+  "offer_id": "offer_JHD834hjbxzhd38d",
   "remaining_count": 5
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create subscription link
 
@@ -104,52 +106,54 @@ client.subscription.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| plan_id*          | string | The unique identifier for a plan that should be linked to the subscription.|
-| total_count*   | string | The number of billing cycles for which the customer should be charged  |
-| customer_notify    | boolean | Indicates whether the communication to the customer would be handled by you or us |
-| quantity    | integer | The number of times the customer should be charged the plan amount per invoice |
-| start_at    | integer | The timestamp, in Unix format, for when the subscription should start. If not passed, the subscription starts immediately after the authorization payment. |
-| expire_by    | integer | The timestamp, in Unix format, till when the customer can make the authorization payment. |
-| addons    | array  | All parameters listed [here](https://razorpay.com/docs/api/payments/subscriptions/#create-a-subscription-link) are supported |
-| notes          | array | Notes you can enter for the contact for future reference.   |
-| notify_info    | array  | All parameters listed [here](https://razorpay.com/docs/api/payments/subscriptions/#create-a-subscription-link) are supported |
-| offer_id   | string | The unique identifier of the offer that is linked to the subscription. |
+| Name            | Type    | Description                                                                                                                                                |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| plan_id\*       | string  | The unique identifier for a plan that should be linked to the subscription.                                                                                |
+| total_count\*   | string  | The number of billing cycles for which the customer should be charged                                                                                      |
+| customer_notify | boolean | Indicates whether the communication to the customer would be handled by you or us                                                                          |
+| quantity        | integer | The number of times the customer should be charged the plan amount per invoice                                                                             |
+| start_at        | integer | The timestamp, in Unix format, for when the subscription should start. If not passed, the subscription starts immediately after the authorization payment. |
+| expire_by       | integer | The timestamp, in Unix format, till when the customer can make the authorization payment.                                                                  |
+| addons          | array   | All parameters listed [here](https://razorpay.com/docs/api/payments/subscriptions/#create-a-subscription-link) are supported                               |
+| notes           | array   | Notes you can enter for the contact for future reference.                                                                                                  |
+| notify_info     | array   | All parameters listed [here](https://razorpay.com/docs/api/payments/subscriptions/#create-a-subscription-link) are supported                               |
+| offer_id        | string  | The unique identifier of the offer that is linked to the subscription.                                                                                     |
 
 **Response:**
+
 ```json
 {
-  "id":"sub_00000000000002",
-  "entity":"subscription",
-  "plan_id":"plan_00000000000001",
-  "status":"created",
-  "current_start":null,
-  "current_end":null,
-  "ended_at":null,
-  "quantity":1,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "id": "sub_00000000000002",
+  "entity": "subscription",
+  "plan_id": "plan_00000000000001",
+  "status": "created",
+  "current_start": null,
+  "current_end": null,
+  "ended_at": null,
+  "quantity": 1,
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
-  "charge_at":1580453311,
-  "start_at":1580453311,
-  "end_at":1587061800,
-  "auth_attempts":0,
-  "total_count":12,
-  "paid_count":0,
-  "customer_notify":true,
-  "created_at":1580283117,
-  "expire_by":1581013800,
-  "short_url":"https://rzp.io/i/m0y0f",
-  "has_scheduled_changes":false,
-  "change_scheduled_at":null,
+  "charge_at": 1580453311,
+  "start_at": 1580453311,
+  "end_at": 1587061800,
+  "auth_attempts": 0,
+  "total_count": 12,
+  "paid_count": 0,
+  "customer_notify": true,
+  "created_at": 1580283117,
+  "expire_by": 1581013800,
+  "short_url": "https://rzp.io/i/m0y0f",
+  "has_scheduled_changes": false,
+  "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
-  "remaining_count":12
+  "offer_id": "offer_JHD834hjbxzhd38d",
+  "remaining_count": 12
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch all subscriptions
 
@@ -159,17 +163,17 @@ client.subscription.all(options)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| from  | timestamp | timestamp after which the payments were created  |
-| to    | timestamp | timestamp before which the payments were created |
-| count | integer   | number of payments to fetch (default: 10)        |
-| skip  | integer   | number of payments to be skipped (default: 0)    |
-| plan_id  | string   | The unique identifier of the plan for which you want to retrieve all the subscriptions    |
+| Name    | Type      | Description                                                                            |
+| ------- | --------- | -------------------------------------------------------------------------------------- |
+| from    | timestamp | timestamp after which the payments were created                                        |
+| to      | timestamp | timestamp before which the payments were created                                       |
+| count   | integer   | number of payments to fetch (default: 10)                                              |
+| skip    | integer   | number of payments to be skipped (default: 0)                                          |
+| plan_id | string    | The unique identifier of the plan for which you want to retrieve all the subscriptions |
 
 **Response:**
-```json
 
+```json
 {
   "entity": "collection",
   "count": 1,
@@ -206,7 +210,8 @@ client.subscription.all(options)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch particular subscription
 
@@ -218,11 +223,12 @@ client.subscription.fetch(subscriptionId)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to be fetched  |
+| Name             | Type   | Description                              |
+| ---------------- | ------ | ---------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to be fetched |
 
 **Response:**
+
 ```json
 {
   "id": "sub_00000000000001",
@@ -234,7 +240,7 @@ client.subscription.fetch(subscriptionId)
   "current_end": 1582655400,
   "ended_at": null,
   "quantity": 1,
-  "notes":{
+  "notes": {
     "notes_key_1": "Tea, Earl Grey, Hot",
     "notes_key_2": "Tea, Earl Grey… decaf."
   },
@@ -251,12 +257,12 @@ client.subscription.fetch(subscriptionId)
   "has_scheduled_changes": false,
   "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
+  "offer_id": "offer_JHD834hjbxzhd38d",
   "remaining_count": 5
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Cancel particular subscription
 
@@ -271,12 +277,13 @@ client.subscription.cancel(subscriptionId,options)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to be cancelled  |
-| cancel_at_cycle_end  | boolean | Possible values:<br>False (default): Cancel the subscription immediately. <br> True: Cancel the subscription at the end of the current billing cycle.  |
+| Name                | Type    | Description                                                                                                                                           |
+| ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| subscriptionId\*    | string  | The id of the subscription to be cancelled                                                                                                            |
+| cancel_at_cycle_end | boolean | Possible values:<br>False (default): Cancel the subscription immediately. <br> True: Cancel the subscription at the end of the current billing cycle. |
 
 **Response:**
+
 ```json
 {
   "id": "sub_00000000000001",
@@ -288,7 +295,7 @@ client.subscription.cancel(subscriptionId,options)
   "current_end": 1581013800,
   "ended_at": 1580288092,
   "quantity": 1,
-  "notes":{
+  "notes": {
     "notes_key_1": "Tea, Earl Grey, Hot",
     "notes_key_2": "Tea, Earl Grey… decaf."
   },
@@ -305,11 +312,12 @@ client.subscription.cancel(subscriptionId,options)
   "has_scheduled_changes": false,
   "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
+  "offer_id": "offer_JHD834hjbxzhd38d",
   "remaining_count": 5
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Update particular subscription
 
@@ -331,46 +339,47 @@ client.subscription.update(subscriptionId,options)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to be updated  |
-| options  | object | All parameters listed [here](https://razorpay.com/docs/api/subscriptions/#update-a-subscription) for update   |
+| Name             | Type   | Description                                                                                                 |
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to be updated                                                                    |
+| options          | object | All parameters listed [here](https://razorpay.com/docs/api/subscriptions/#update-a-subscription) for update |
 
 **Response:**
+
 ```json
 {
-  "id":"sub_00000000000002",
-  "entity":"subscription",
-  "plan_id":"plan_00000000000002",
-  "customer_id":"cust_00000000000002",
-  "status":"authenticated",
-  "current_start":null,
-  "current_end":null,
-  "ended_at":null,
-  "quantity":3,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "id": "sub_00000000000002",
+  "entity": "subscription",
+  "plan_id": "plan_00000000000002",
+  "customer_id": "cust_00000000000002",
+  "status": "authenticated",
+  "current_start": null,
+  "current_end": null,
+  "ended_at": null,
+  "quantity": 3,
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
-  "charge_at":1580453311,
-  "start_at":1580453311,
-  "end_at":1606588200,
-  "auth_attempts":0,
-  "total_count":6,
-  "paid_count":0,
-  "customer_notify":true,
-  "created_at":1580283807,
-  "expire_by":1580626111,
-  "short_url":"https://rzp.io/i/yeDkUKy",
-  "has_scheduled_changes":false,
-  "change_scheduled_at":null,
+  "charge_at": 1580453311,
+  "start_at": 1580453311,
+  "end_at": 1606588200,
+  "auth_attempts": 0,
+  "total_count": 6,
+  "paid_count": 0,
+  "customer_notify": true,
+  "created_at": 1580283807,
+  "expire_by": 1580626111,
+  "short_url": "https://rzp.io/i/yeDkUKy",
+  "has_scheduled_changes": false,
+  "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
-  "remaining_count":6
+  "offer_id": "offer_JHD834hjbxzhd38d",
+  "remaining_count": 6
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch details of pending update
 
@@ -382,44 +391,46 @@ client.subscription.pending_update(subscriptionId)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to fetch pending update  |
+| Name             | Type   | Description                                        |
+| ---------------- | ------ | -------------------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to fetch pending update |
 
 **Response:**
+
 ```json
 {
-  "id":"sub_00000000000001",
-  "entity":"subscription",
-  "plan_id":"plan_00000000000003",
-  "customer_id":"cust_00000000000001",
-  "status":"active",
-  "current_start":1580284732,
-  "current_end":1580841000,
-  "ended_at":null,
-  "quantity":25,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "id": "sub_00000000000001",
+  "entity": "subscription",
+  "plan_id": "plan_00000000000003",
+  "customer_id": "cust_00000000000001",
+  "status": "active",
+  "current_start": 1580284732,
+  "current_end": 1580841000,
+  "ended_at": null,
+  "quantity": 25,
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
-  "charge_at":1580841000,
-  "start_at":1580284732,
-  "end_at":1611081000,
-  "auth_attempts":0,
-  "total_count":6,
-  "paid_count":1,
-  "customer_notify":true,
-  "created_at":1580284702,
-  "expire_by":1580626111,
-  "short_url":"https://rzp.io/i/fFWTkbf",
-  "has_scheduled_changes":true,
-  "change_scheduled_at":1557253800,
+  "charge_at": 1580841000,
+  "start_at": 1580284732,
+  "end_at": 1611081000,
+  "auth_attempts": 0,
+  "total_count": 6,
+  "paid_count": 1,
+  "customer_notify": true,
+  "created_at": 1580284702,
+  "expire_by": 1580626111,
+  "short_url": "https://rzp.io/i/fFWTkbf",
+  "has_scheduled_changes": true,
+  "change_scheduled_at": 1557253800,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
-  "remaining_count":5
+  "offer_id": "offer_JHD834hjbxzhd38d",
+  "remaining_count": 5
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Cancel a update
 
@@ -431,11 +442,12 @@ client.subscription.cancel_scheduled_changes(subscriptionId)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to be cancel an update  |
+| Name             | Type   | Description                                       |
+| ---------------- | ------ | ------------------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to be cancel an update |
 
 **Response:**
+
 ```json
 {
   "id": "sub_00000000000001",
@@ -464,11 +476,12 @@ client.subscription.cancel_scheduled_changes(subscriptionId)
   "has_scheduled_changes": false,
   "change_scheduled_at": 1527858600,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
+  "offer_id": "offer_JHD834hjbxzhd38d",
   "remaining_count": 5
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Pause a subscription
 
@@ -482,12 +495,13 @@ client.subscription.pause(subscriptionId,{
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to be paused  |
-| pause_at  | string | To pause the subscription, possible values: `now`  |
+| Name             | Type   | Description                                       |
+| ---------------- | ------ | ------------------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to be paused           |
+| pause_at         | string | To pause the subscription, possible values: `now` |
 
 **Response:**
+
 ```json
 {
   "id": "sub_00000000000001",
@@ -498,9 +512,9 @@ client.subscription.pause(subscriptionId,{
   "current_end": null,
   "ended_at": null,
   "quantity": 1,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
   "charge_at": null,
   "start_at": 1580626111,
@@ -517,11 +531,12 @@ client.subscription.pause(subscriptionId,{
   "has_scheduled_changes": false,
   "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
+  "offer_id": "offer_JHD834hjbxzhd38d",
   "remaining_count": 6
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Resume a subscription
 
@@ -535,12 +550,13 @@ client.subscription.resume(subscriptionId,{
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to be resumed  |
-| resume_at  | string | To resume the subscription, possible values: `now`  |
+| Name             | Type   | Description                                        |
+| ---------------- | ------ | -------------------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to be resumed           |
+| resume_at        | string | To resume the subscription, possible values: `now` |
 
 **Response:**
+
 ```json
 {
   "id": "sub_00000000000001",
@@ -551,9 +567,9 @@ client.subscription.resume(subscriptionId,{
   "current_end": null,
   "ended_at": null,
   "quantity": 1,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
   "charge_at": 1580453311,
   "start_at": 1580626111,
@@ -570,11 +586,12 @@ client.subscription.resume(subscriptionId,{
   "has_scheduled_changes": false,
   "change_scheduled_at": null,
   "source": "api",
-  "offer_id":"offer_JHD834hjbxzhd38d",
+  "offer_id": "offer_JHD834hjbxzhd38d",
   "remaining_count": 6
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch all invoices for a subscription
 
@@ -588,11 +605,12 @@ client.invoice.all({
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to fetch invoices  |
+| Name             | Type   | Description                                  |
+| ---------------- | ------ | -------------------------------------------- |
+| subscriptionId\* | string | The id of the subscription to fetch invoices |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -678,7 +696,8 @@ client.invoice.all({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Delete offer linked to a subscription
 
@@ -691,51 +710,56 @@ client.subscription.delete_offer(subscriptionId, offerId)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| subscriptionId*  | string | The id of the subscription to offer need to be deleted  |
-| offerId*  | string | The id of the offer linked to subscription  |
+| Name             | Type   | Description                                            |
+| ---------------- | ------ | ------------------------------------------------------ |
+| subscriptionId\* | string | The id of the subscription to offer need to be deleted |
+| offerId\*        | string | The id of the offer linked to subscription             |
 
 **Response:**
+
 ```json
 {
-    "id": "sub_I3GGEs7Xgmnozy",
-    "entity": "subscription",
-    "plan_id": "plan_HuXrfsI0ZZ3peu",
-    "customer_id": "cust_I3FToKbnExwDLu",
-    "status": "active",
-    "current_start": 1632914901,
-    "current_end": 1635445800,
-    "ended_at": null,
-    "quantity": 1,
-    "notes": [],
-    "charge_at": 1635445800,
-    "start_at": 1632914901,
-    "end_at": 1645986600,
-    "auth_attempts": 0,
-    "total_count": 6,
-    "paid_count": 1,
-    "customer_notify": true,
-    "created_at": 1632914246,
-    "expire_by": 1635532200,
-    "short_url": "https://rzp.io/i/SOvRWaYP81",
-    "has_scheduled_changes": false,
-    "change_scheduled_at": null,
-    "source": "dashboard",
-    "payment_method": "card",
-    "offer_id": null,
-    "remaining_count": 5
+  "id": "sub_I3GGEs7Xgmnozy",
+  "entity": "subscription",
+  "plan_id": "plan_HuXrfsI0ZZ3peu",
+  "customer_id": "cust_I3FToKbnExwDLu",
+  "status": "active",
+  "current_start": 1632914901,
+  "current_end": 1635445800,
+  "ended_at": null,
+  "quantity": 1,
+  "notes": [],
+  "charge_at": 1635445800,
+  "start_at": 1632914901,
+  "end_at": 1645986600,
+  "auth_attempts": 0,
+  "total_count": 6,
+  "paid_count": 1,
+  "customer_notify": true,
+  "created_at": 1632914246,
+  "expire_by": 1635532200,
+  "short_url": "https://rzp.io/i/SOvRWaYP81",
+  "has_scheduled_changes": false,
+  "change_scheduled_at": null,
+  "source": "dashboard",
+  "payment_method": "card",
+  "offer_id": null,
+  "remaining_count": 5
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Authentication Transaction
 
-Please refer this [doc](https://razorpay.com/docs/api/subscriptions/#authentication-transaction) for authentication of transaction
+Please refer this
+[doc](https://razorpay.com/docs/api/subscriptions/#authentication-transaction)
+for authentication of transaction
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Payment verification
+
 ```py
 client.utility.verify_payment_signature({
    'razorpay_order_id': razorpay_order_id,
@@ -743,18 +767,21 @@ client.utility.verify_payment_signature({
    'razorpay_signature': razorpay_signature
    })
 ```
+
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| body*   | object      | the response object of the successful payment `payment_id`, `order_id` and `signature` |
-| secret*   | string      | The secret that was generated from the Dashboard |
+| Name     | Type   | Description                                                                            |
+| -------- | ------ | -------------------------------------------------------------------------------------- |
+| body\*   | object | the response object of the successful payment `payment_id`, `order_id` and `signature` |
+| secret\* | string | The secret that was generated from the Dashboard                                       |
 
-Please refer this [doc](https://razorpay.com/docs/api/subscriptions/#payment-verification) for payment verification
+Please refer this
+[doc](https://razorpay.com/docs/api/subscriptions/#payment-verification) for
+payment verification
 
--------------------------------------------------------------------------------------------------------
+---
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
-**For reference click [here](https://razorpay.com/docs/api/subscriptions/#subscriptions)**
+**PN: \* indicates mandatory fields**
+
+**For reference click
+[here](https://razorpay.com/docs/api/subscriptions/#subscriptions)**

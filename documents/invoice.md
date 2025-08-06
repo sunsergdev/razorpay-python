@@ -2,8 +2,9 @@
 
 ### Create Invoice
 
-Request #1
-In this example, an invoice is created using the customer and item details. Here, the customer and item are created while creating the invoice.
+Request #1 In this example, an invoice is created using the customer and item
+details. Here, the customer and item are created while creating the invoice.
+
 ```py
 client.invoice.create({
   "type": "invoice",
@@ -48,22 +49,23 @@ client.invoice.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|type*          | string | entity type (here its invoice)                                               |
-|description        | string  | A brief description of the invoice.                      |
-|customer_id           | string  | customer id for which invoice need be raised   |
-|draft           | string  |  Invoice is created in draft state when value is set to `1`   |
-| customer*     | array | All parameters listed [here](https://razorpay.com/docs/api/payments/invoices/#create-an-invoice) are supported           |
-| line_items    | array | All parameters listed [here](https://razorpay.com/docs/api/payments/invoices/#create-an-invoice) are supported |
-|expire_by           | array  | Details of the line item that is billed in the invoice.  |
-|sms_notify           | array  | Details of the line item that is billed in the invoice.  |
-|email_notify           | array  | Details of the line item that is billed in the invoice.  |
-|partial_payment | boolean  | Indicates whether customers can make partial payments on the invoice . Possible values: true - Customer can make partial payments. false (default) - Customer cannot make partial payments. |
-| currency*   | string  | The currency of the payment (defaults to INR)  |
+| Name            | Type    | Description                                                                                                                                                                                 |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type\*          | string  | entity type (here its invoice)                                                                                                                                                              |
+| description     | string  | A brief description of the invoice.                                                                                                                                                         |
+| customer_id     | string  | customer id for which invoice need be raised                                                                                                                                                |
+| draft           | string  | Invoice is created in draft state when value is set to `1`                                                                                                                                  |
+| customer\*      | array   | All parameters listed [here](https://razorpay.com/docs/api/payments/invoices/#create-an-invoice) are supported                                                                              |
+| line_items      | array   | All parameters listed [here](https://razorpay.com/docs/api/payments/invoices/#create-an-invoice) are supported                                                                              |
+| expire_by       | array   | Details of the line item that is billed in the invoice.                                                                                                                                     |
+| sms_notify      | array   | Details of the line item that is billed in the invoice.                                                                                                                                     |
+| email_notify    | array   | Details of the line item that is billed in the invoice.                                                                                                                                     |
+| partial_payment | boolean | Indicates whether customers can make partial payments on the invoice . Possible values: true - Customer can make partial payments. false (default) - Customer cannot make partial payments. |
+| currency\*      | string  | The currency of the payment (defaults to INR)                                                                                                                                               |
 
-Request #2
-In this example, an invoice is created using existing `customer_id` and `item_id`
+Request #2 In this example, an invoice is created using existing `customer_id`
+and `item_id`
+
 ```py
 client.invoice.create({
   "type:": "invoice",
@@ -79,17 +81,17 @@ client.invoice.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|type*          | string | entity type (here its invoice)                                               |
-|description        | string  | A brief description of the invoice.                      |
-|customer_id           | string  | customer id for which invoice need be raised                     |
-|customer           | object  | customer details in a object format                     |
+| Name        | Type   | Description                                  |
+| ----------- | ------ | -------------------------------------------- |
+| type\*      | string | entity type (here its invoice)               |
+| description | string | A brief description of the invoice.          |
+| customer_id | string | customer id for which invoice need be raised |
+| customer    | object | customer details in a object format          |
 
-**Response:**
-For create invoice response please click [here](https://razorpay.com/docs/api/invoices/#create-an-invoice)
+**Response:** For create invoice response please click
+[here](https://razorpay.com/docs/api/invoices/#create-an-invoice)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch all invoices
 
@@ -99,17 +101,17 @@ client.invoice.all()
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-|type          | string | entity type (here its invoice)                                               |
-|payment_id        | string  | The unique identifier of the payment made by the customer against the invoice.                      |
-|customer_id           | string  | The unique identifier of the customer.                     |
-|receipt           | string  |  The unique receipt number that you entered for internal purposes.                     |
+| Name        | Type   | Description                                                                    |
+| ----------- | ------ | ------------------------------------------------------------------------------ |
+| type        | string | entity type (here its invoice)                                                 |
+| payment_id  | string | The unique identifier of the payment made by the customer against the invoice. |
+| customer_id | string | The unique identifier of the customer.                                         |
+| receipt     | string | The unique receipt number that you entered for internal purposes.              |
 
-**Response:**
-For fetch all invoice response please click [here](https://razorpay.com/docs/api/invoices/#fetch-multiple-invoices)
+**Response:** For fetch all invoice response please click
+[here](https://razorpay.com/docs/api/invoices/#fetch-multiple-invoices)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch invoice
 
@@ -119,11 +121,12 @@ client.invoice.fetch(invoiceId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| invoiceId*          | string | The id of the invoice to be fetched                         |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| invoiceId\* | string | The id of the invoice to be fetched |
 
 **Response:**
+
 ```json
 {
   "id": "inv_E7q0tqkxBRzdau",
@@ -221,7 +224,8 @@ client.invoice.fetch(invoiceId)
   "created_at": 1579765167
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Update invoice
 
@@ -248,13 +252,14 @@ client.invoice.edit(invoiceId,{
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| invoiceId*          | string | The id of the invoice to be fetched                         |
-| line_items    | array | All parameters listed [here](https://razorpay.com/docs/api/payments/invoices/#update-an-invoice) are supported |
-| notes    | array | key value pair |
+| Name        | Type   | Description                                                                                                    |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| invoiceId\* | string | The id of the invoice to be fetched                                                                            |
+| line_items  | array  | All parameters listed [here](https://razorpay.com/docs/api/payments/invoices/#update-an-invoice) are supported |
+| notes       | array  | key value pair                                                                                                 |
 
 **Response:**
+
 ```json
 {
   "id": "inv_DAweOiQ7amIUVd",
@@ -343,7 +348,8 @@ client.invoice.edit(invoiceId,{
   "idempotency_key": null
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Issue an invoice
 
@@ -353,11 +359,12 @@ client.invoice.issue(invoiceId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| invoiceId*          | string | The id of the invoice to be issued                         |
+| Name        | Type   | Description                        |
+| ----------- | ------ | ---------------------------------- |
+| invoiceId\* | string | The id of the invoice to be issued |
 
 **Response:**
+
 ```json
 {
   "id": "inv_DAweOiQ7amIUVd",
@@ -467,7 +474,8 @@ client.invoice.issue(invoiceId)
   "idempotency_key": null
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Delete an invoice
 
@@ -477,15 +485,17 @@ client.invoice.delete(invoiceId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| invoiceId*          | string | The id of the invoice to be deleted                         |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| invoiceId\* | string | The id of the invoice to be deleted |
 
 **Response:**
+
 ```
 []
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Cancel an invoice
 
@@ -495,11 +505,12 @@ client.invoice.cancel(invoiceId)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| invoiceId*          | string | The id of the invoice to be cancelled                         |
+| Name        | Type   | Description                           |
+| ----------- | ------ | ------------------------------------- |
+| invoiceId\* | string | The id of the invoice to be cancelled |
 
 **Response:**
+
 ```json
 {
   "id": "inv_E7q0tqkxBRzdau",
@@ -598,7 +609,8 @@ client.invoice.cancel(invoiceId)
   "idempotency_key": null
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Send notification
 
@@ -608,20 +620,21 @@ client.invoice.notify_by(invoiceId,medium)
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| invoiceId*          | string | The id of the invoice to be notified                         |
-| medium*          | string | `sms`/`email`, Medium through which notification should be sent.                         |
+| Name        | Type   | Description                                                      |
+| ----------- | ------ | ---------------------------------------------------------------- |
+| invoiceId\* | string | The id of the invoice to be notified                             |
+| medium\*    | string | `sms`/`email`, Medium through which notification should be sent. |
 
 **Response:**
+
 ```json
 {
-    "success": true
+  "success": true
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/invoices)**

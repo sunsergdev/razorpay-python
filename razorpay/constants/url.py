@@ -1,7 +1,12 @@
-class URL(object):
-    BASE_URL = 'https://api.razorpay.com'
-    V1 = '/v1'
-    V2 = '/v2'
+"""Razorpay URLs."""
+
+
+class URL:
+    """Razorpay API URLs and endpoint paths."""
+
+    BASE_URL = "https://api.razorpay.com"
+    V1 = "/v1"
+    V2 = "/v2"
     ORDER_URL = "/orders"
     INVOICE_URL = "/invoices"
     PAYMENT_LINK_URL = "/payment_links"
@@ -23,9 +28,8 @@ class URL(object):
     STAKEHOLDER = "/stakeholders"
     PRODUCT = "/products"
     TNC = "/tnc"
-    TOKEN = "/tokens"
+    TOKEN = "/tokens"  # noqa: S105
     IIN = "/iins"
     WEBHOOK = "/webhooks"
-    DOCUMENT= "/documents"
-    DISPUTE= "/disputes"
-
+    DOCUMENT = "/documents"
+    DISPUTE = "/disputes"

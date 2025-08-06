@@ -1,6 +1,6 @@
 ## Settlements
 
-### Fetch all  settlements
+### Fetch all settlements
 
 ```py
 client.settlement.all(options)
@@ -8,15 +8,15 @@ client.settlement.all(options)
 
 **Parameters:**
 
-
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
+| Name  | Type      | Description                                        |
+| ----- | --------- | -------------------------------------------------- |
 | from  | timestamp | timestamp after which the settlement were created  |
 | to    | timestamp | timestamp before which the settlement were created |
-| count | integer   | number of settlements to fetch (default: 10)        |
-| skip  | integer   | number of settlements to be skipped (default: 0)    |
+| count | integer   | number of settlements to fetch (default: 10)       |
+| skip  | integer   | number of settlements to be skipped (default: 0)   |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -36,7 +36,7 @@ client.settlement.all(options)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch a settlement
 
@@ -46,24 +46,26 @@ client.settlement.fetch(settlementId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| settlementId* | string      | The id of the settlement to be fetched  |
+| Name           | Type   | Description                            |
+| -------------- | ------ | -------------------------------------- |
+| settlementId\* | string | The id of the settlement to be fetched |
 
 **Response:**
+
 ```json
 {
-    "id": "setl_DGlQ1Rj8os78Ec",
-    "entity": "settlement",
-    "amount": 9973635,
-    "status": "processed",
-    "fees": 471699,
-    "tax": 42070,
-    "utr": "1568176960vxp0rj",
-    "created_at": 1568176960
+  "id": "setl_DGlQ1Rj8os78Ec",
+  "entity": "settlement",
+  "amount": 9973635,
+  "status": "processed",
+  "fees": 471699,
+  "tax": 42070,
+  "utr": "1568176960vxp0rj",
+  "created_at": 1568176960
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Settlement recon
 
@@ -74,17 +76,19 @@ client.settlement.report({
   "day":11
 })
 ```
+
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| year* | integer      | The year the settlement was received in the `YYYY` format. For example, `2020`   |
-| month* | integer      | The month the settlement was received in the `MM` format. For example, `09`   |
-| day | integer   | The day the settlement was received in the `DD` format. For example,      |
-| count | integer   | Specifies the number of available settlements to be fetched.    |
-| skip | integer   | Specifies the number of available settlements to be skipped when fetching a count.  |
+| Name    | Type    | Description                                                                        |
+| ------- | ------- | ---------------------------------------------------------------------------------- |
+| year\*  | integer | The year the settlement was received in the `YYYY` format. For example, `2020`     |
+| month\* | integer | The month the settlement was received in the `MM` format. For example, `09`        |
+| day     | integer | The day the settlement was received in the `DD` format. For example,               |
+| count   | integer | Specifies the number of available settlements to be fetched.                       |
+| skip    | integer | Specifies the number of available settlements to be skipped when fetching a count. |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -204,7 +208,8 @@ client.settlement.report({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create on-demand settlement
 
@@ -222,14 +227,15 @@ client.settlement.create_ondemand_settlement({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| amount*| integer      | Maximum amount that can be settled  |
-| settle_full_balance* | boolean      | true or false   |
-| description | string   | The description may not be greater than 30 characters    |
-| notes   | object   | A key-value pair     |
+| Name                  | Type    | Description                                           |
+| --------------------- | ------- | ----------------------------------------------------- |
+| amount\*              | integer | Maximum amount that can be settled                    |
+| settle_full_balance\* | boolean | true or false                                         |
+| description           | string  | The description may not be greater than 30 characters |
+| notes                 | object  | A key-value pair                                      |
 
 **Response:**
+
 ```json
 {
   "id": "setlod_FNj7g2YS5J67Rz",
@@ -272,19 +278,21 @@ client.settlement.create_ondemand_settlement({
 }
 ```
 
-Create on-demand settlement please click [here](https://razorpay.com/docs/api/settlements/instant/#create-an-instant-settlement)
+Create on-demand settlement please click
+[here](https://razorpay.com/docs/api/settlements/instant/#create-an-instant-settlement)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch all on-demand settlements
 
 ```py
 client.settlement.fetch_all_ondemand_settlement(options)
 ```
+
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
+| Name  | Type      | Description                                         |
+| ----- | --------- | --------------------------------------------------- |
 | from  | timestamp | timestamp after which the settlements were created  |
 | to    | timestamp | timestamp before which the settlements were created |
 | count | integer   | number of settlements to fetch (default: 10)        |
@@ -339,7 +347,7 @@ client.settlement.fetch_all_ondemand_settlement(options)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch on-demand settlement by ID
 
@@ -349,9 +357,9 @@ client.settlement.fetch_ondemand_settlement_id(settlementId)
 
 **Parameters:**
 
-| Name       | Type   | Description                       |
-|------------|--------|-----------------------------------|
-| settlementId* | string | Settlement Id of the On-demand settlement|
+| Name           | Type   | Description                               |
+| -------------- | ------ | ----------------------------------------- |
+| settlementId\* | string | Settlement Id of the On-demand settlement |
 
 **Response:**
 
@@ -376,9 +384,9 @@ client.settlement.fetch_ondemand_settlement_id(settlementId)
   "created_at": 1596771429
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/settlements/)**

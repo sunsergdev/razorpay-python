@@ -1,17 +1,19 @@
 ## Tokens
 
 ### Fetch token by payment id
+
 ```py
 client.payment.fetch(paymentId)
 ```
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| paymentId*    | string      | The id of the payment to be fetched |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| paymentId\* | string | The id of the payment to be fetched |
 
 **Response:**
+
 ```json
 {
   "id": "pay_FHfqtkRzWvxky4",
@@ -53,7 +55,7 @@ client.payment.fetch(paymentId)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch tokens by customer id
 
@@ -63,11 +65,12 @@ client.token.all(customerId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*          | string      | The id of the customer to be fetched |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| customerId\* | string | The id of the customer to be fetched |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -116,21 +119,24 @@ client.token.all(customerId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch particular token
+
 ```py
 client.token.fetch(customerId, tokenId)
 ```
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*          | string      | The id of the customer to be fetched |
-| tokenId*          | string      | The id of the token to be fetched |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| customerId\* | string | The id of the customer to be fetched |
+| tokenId\*    | string | The id of the token to be fetched    |
 
 **Response:**
+
 ```json
 {
   "id": "token_JIskPHR6HnypUV",
@@ -173,7 +179,8 @@ client.token.fetch(customerId, tokenId)
   "compliant_with_tokenisation_guidelines": false
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Delete token
 
@@ -183,18 +190,20 @@ client.token.delete(customerId, tokenId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*          | string      | The id of the customer to be fetched |
-| tokenId*          | string      | The id of the token to be fetched |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| customerId\* | string | The id of the customer to be fetched |
+| tokenId\*    | string | The id of the token to be fetched    |
 
 **Response:**
+
 ```json
 {
-    "deleted": true
+  "deleted": true
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch VPA tokens of a customer id
 
@@ -204,13 +213,15 @@ client.token.all(customerId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*          | string      | The id of the customer to be fetched |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| customerId\* | string | The id of the customer to be fetched |
 
- please refer this [doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/collect/#step-22-fetch-vpa-tokens-of-a-customer)
+please refer this
+[doc](https://razorpay.com/docs/payments/third-party-validation/s2s-integration/upi/collect/#step-22-fetch-vpa-tokens-of-a-customer)
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -251,7 +262,8 @@ client.token.all(customerId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create a token
 
@@ -270,7 +282,7 @@ client.token.create({
   "authentication": {
     "provider": "razorpay",
     "provider_reference_id": "pay_123wkejnsakd",
-    "authentication_reference_number": "100222021120200000000742753928"  
+    "authentication_reference_number": "100222021120200000000742753928"
   },
   "notes": []
 })
@@ -278,15 +290,18 @@ client.token.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| customerId*          | string      | The id of the customer to be fetched |
-| method*          | string      |  The type of object that needs to be tokenised. Currently, `card` is the only supported value. |
-| card*         | object      | All keys listed [here](https://razorpay.com/docs/partners/aggregators/partner-auth/token-sharing/#create-token-on-behalf-of-a-sub-merchant) are supported
-|
-| authentication         | object      | All keys listed [here](https://razorpay.com/docs/partners/aggregators/partner-auth/token-sharing/#create-token-on-behalf-of-a-sub-merchant) are supported |     
+| Name         | Type   | Description                                                                                                                                               |
+| ------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| customerId\* | string | The id of the customer to be fetched                                                                                                                      |
+| method\*     | string | The type of object that needs to be tokenised. Currently, `card` is the only supported value.                                                             |
+| card\*       | object | All keys listed [here](https://razorpay.com/docs/partners/aggregators/partner-auth/token-sharing/#create-token-on-behalf-of-a-sub-merchant) are supported |
+
+| | authentication | object | All keys listed
+[here](https://razorpay.com/docs/partners/aggregators/partner-auth/token-sharing/#create-token-on-behalf-of-a-sub-merchant)
+are supported |
 
 **Response:**
+
 ```json
 {
   "id": "token_IJmat4GwYATMtx",
@@ -321,20 +336,23 @@ client.token.create({
   "notes": []
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch token
+
 ```py
 client.token.fetch({"id": "token_4lsdksD31GaZ09"})
 ```
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| id* | string      | The unique identifier of a sub-merchant account generated by Razorpay.  |
+| Name | Type   | Description                                                            |
+| ---- | ------ | ---------------------------------------------------------------------- |
+| id\* | string | The unique identifier of a sub-merchant account generated by Razorpay. |
 
 **Response:**
+
 ```json
 {
   "id": "token_4lsdksD31GaZ09",
@@ -358,47 +376,56 @@ client.token.fetch({"id": "token_4lsdksD31GaZ09"})
   "notes": []
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Delete a token
+
 ```py
 client.token.delete({"id": "token_4lsdksD31GaZ09"})
 ```
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| id* | string      | The unique identifier of a sub-merchant account generated by Razorpay.  |
+| Name | Type   | Description                                                            |
+| ---- | ------ | ---------------------------------------------------------------------- |
+| id\* | string | The unique identifier of a sub-merchant account generated by Razorpay. |
 
 **Response:**
+
 ```json
 []
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Process a Payment on another PA/PG with Token
+
 ```py
 client.token.processPaymentOnAlternatePAorPG({"id":"spt_4lsdksD31GaZ09"})
 ```
 
 **Parameters:**
 
-| Name        | Type        | Description                                 |
-|-------------|-------------|---------------------------------------------|
-| id* | string      | The unique identifier of the token whose details are to be fetched.  |
+| Name | Type   | Description                                                         |
+| ---- | ------ | ------------------------------------------------------------------- |
+| id\* | string | The unique identifier of the token whose details are to be fetched. |
 
 **Response:**
+
 ```json
-{ 
+{
   "card": {
-      "number": "4016981500100002",
-      "expiry_month" : "12",
-      "expiry_year" : 2021
+    "number": "4016981500100002",
+    "expiry_month": "12",
+    "expiry_year": 2021
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
-**PN: * indicates mandatory fields**
-<br>
-<br>
-**For reference click [here](https://razorpay.com/docs/api/payments/recurring-payments/upi/tokens/)**
+
+---
+
+**PN: \* indicates mandatory fields**
+
+**For reference click
+[here](https://razorpay.com/docs/api/payments/recurring-payments/upi/tokens/)**

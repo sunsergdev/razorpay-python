@@ -1,9 +1,10 @@
-import responses
 import json
+
+import responses
 
 from razorpay.constants.url import URL
 
-from .helpers import mock_file, ClientTestCase
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientCustomer(ClientTestCase):
@@ -11,12 +12,12 @@ class TestClientCustomer(ClientTestCase):
     def setUp(self):
         super(TestClientCustomer, self).setUp()
         self.url = self.base_url
-        self.base_url = '{}/customers'.format(self.base_url)
+        self.base_url = f'{self.base_url}/customers'
 
     @responses.activate
     def test_tokens_all(self):
         result = mock_file('token_collection')
-        url = '{}/{}/tokens'.format(self.base_url, self.customer_id)
+        url = f'{self.base_url}/{self.customer_id}/tokens'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.token.all(self.customer_id),
@@ -25,9 +26,7 @@ class TestClientCustomer(ClientTestCase):
     @responses.activate
     def test_token_fetch(self):
         result = mock_file('token_collection')
-        url = '{}/{}/tokens/{}'.format(self.base_url,
-                                       self.customer_id,
-                                       self.token_id)
+        url = f'{self.base_url}/{self.customer_id}/tokens/{self.token_id}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(
@@ -36,9 +35,7 @@ class TestClientCustomer(ClientTestCase):
 
     @responses.activate
     def test_token_delete(self):
-        url = '{}/{}/tokens/{}'.format(self.base_url,
-                                       self.customer_id,
-                                       self.token_id)
+        url = f'{self.base_url}/{self.customer_id}/tokens/{self.token_id}'
         responses.add(responses.DELETE,
                       url,
                       status=200,
@@ -68,7 +65,7 @@ class TestClientCustomer(ClientTestCase):
             "notes": []
         }
         result = mock_file('fake_merchant_token')
-        url = '{}{}'.format(self.url, URL.TOKEN)
+        url = f'{self.url}{URL.TOKEN}'
         responses.add(responses.POST, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.token.create(init), result)

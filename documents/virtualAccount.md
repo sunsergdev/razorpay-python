@@ -1,6 +1,7 @@
 ## Virtual account
 
 ### Create a virtual account
+
 ```py
 client.virtual_account.create({
   "receivers": {
@@ -19,48 +20,50 @@ client.virtual_account.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| receivers*    | object      | All parameters listed [here](https://razorpay.com/docs/api/payments/smart-collect/#create-virtual-account) are supported  |
-| description  | string      | A brief description of the virtual account.                    |
-| customer_id  | string      | Unique identifier of the customer to whom the virtual account must be tagged.                    |
-| close_by  | integer      | UNIX timestamp at which the virtual account is scheduled to be automatically closed.                  |
-| notes  | integer      | Any custom notes you might want to add to the virtual account can be entered here.                  |
+| Name        | Type    | Description                                                                                                              |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
+| receivers\* | object  | All parameters listed [here](https://razorpay.com/docs/api/payments/smart-collect/#create-virtual-account) are supported |
+| description | string  | A brief description of the virtual account.                                                                              |
+| customer_id | string  | Unique identifier of the customer to whom the virtual account must be tagged.                                            |
+| close_by    | integer | UNIX timestamp at which the virtual account is scheduled to be automatically closed.                                     |
+| notes       | integer | Any custom notes you might want to add to the virtual account can be entered here.                                       |
 
 **Response:**
+
 ```json
 {
-  "id":"va_DlGmm7jInLudH9",
-  "name":"Acme Corp",
-  "entity":"virtual_account",
-  "status":"active",
-  "description":"Virtual Account created for Raftar Soft",
-  "amount_expected":null,
-  "notes":{
-    "project_name":"Banking Software"
+  "id": "va_DlGmm7jInLudH9",
+  "name": "Acme Corp",
+  "entity": "virtual_account",
+  "status": "active",
+  "description": "Virtual Account created for Raftar Soft",
+  "amount_expected": null,
+  "notes": {
+    "project_name": "Banking Software"
   },
-  "amount_paid":0,
-  "customer_id":"cust_CaVDm8eDRSXYME",
-  "receivers":[
+  "amount_paid": 0,
+  "customer_id": "cust_CaVDm8eDRSXYME",
+  "receivers": [
     {
-      "id":"ba_DlGmm9mSj8fjRM",
-      "entity":"bank_account",
-      "ifsc":"RATN0VAAPIS",
+      "id": "ba_DlGmm9mSj8fjRM",
+      "entity": "bank_account",
+      "ifsc": "RATN0VAAPIS",
       "bank_name": "RBL Bank",
-      "name":"Acme Corp",
-      "notes":[],
-      "account_number":"2223330099089860"
+      "name": "Acme Corp",
+      "notes": [],
+      "account_number": "2223330099089860"
     }
   ],
-  "close_by":1681615838,
-  "closed_at":null,
-  "created_at":1574837626
+  "close_by": 1681615838,
+  "closed_at": null,
+  "created_at": 1574837626
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Create a virtual account with TPV
+
 ```py
 client.virtual_account.create({
   "receivers": {
@@ -87,43 +90,44 @@ client.virtual_account.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| receivers*    | object      | Array that defines what receivers are available for this Virtual Account                        |
-| allowed_payers*  | object      | All parameters listed [here](https://razorpay.com/docs/api/smart-collect-tpv/#create-virtual-account) are supported |
-| description  | string      | A brief description of the virtual account.                    |
-| customer_id  | string      | Unique identifier of the customer to whom the virtual account must be tagged.                    |
-| notes  | integer      | Any custom notes you might want to add to the virtual account can be entered here.                  |
+| Name             | Type    | Description                                                                                                         |
+| ---------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| receivers\*      | object  | Array that defines what receivers are available for this Virtual Account                                            |
+| allowed_payers\* | object  | All parameters listed [here](https://razorpay.com/docs/api/smart-collect-tpv/#create-virtual-account) are supported |
+| description      | string  | A brief description of the virtual account.                                                                         |
+| customer_id      | string  | Unique identifier of the customer to whom the virtual account must be tagged.                                       |
+| notes            | integer | Any custom notes you might want to add to the virtual account can be entered here.                                  |
 
 **Response:**
+
 ```json
 {
-  "id":"va_DlGmm7jInLudH9",
-  "name":"Acme Corp",
-  "entity":"virtual_account",
-  "status":"active",
-  "description":"Virtual Account created for Raftar Soft",
-  "amount_expected":null,
-  "notes":{
-    "project_name":"Banking Software"
+  "id": "va_DlGmm7jInLudH9",
+  "name": "Acme Corp",
+  "entity": "virtual_account",
+  "status": "active",
+  "description": "Virtual Account created for Raftar Soft",
+  "amount_expected": null,
+  "notes": {
+    "project_name": "Banking Software"
   },
-  "amount_paid":0,
-  "customer_id":"cust_CaVDm8eDRSXYME",
-  "receivers":[
+  "amount_paid": 0,
+  "customer_id": "cust_CaVDm8eDRSXYME",
+  "receivers": [
     {
-      "id":"ba_DlGmm9mSj8fjRM",
-      "entity":"bank_account",
-      "ifsc":"RATN0VAAPIS",
+      "id": "ba_DlGmm9mSj8fjRM",
+      "entity": "bank_account",
+      "ifsc": "RATN0VAAPIS",
       "bank_name": "RBL Bank",
-      "name":"Acme Corp",
-      "notes":[],
-      "account_number":"2223330099089860"
+      "name": "Acme Corp",
+      "notes": [],
+      "account_number": "2223330099089860"
     }
   ],
   "allowed_payers": [
     {
       "type": "bank_account",
-      "id":"ba_DlGmm9mSj8fjRM",
+      "id": "ba_DlGmm9mSj8fjRM",
       "bank_account": {
         "ifsc": "UTIB0000013",
         "account_number": "914010012345679"
@@ -131,22 +135,23 @@ client.virtual_account.create({
     },
     {
       "type": "bank_account",
-      "id":"ba_Cmtnm5tSj6agUW",
+      "id": "ba_Cmtnm5tSj6agUW",
       "bank_account": {
         "ifsc": "UTIB0000014",
         "account_number": "914010012345680"
       }
     }
   ],
-  "close_by":1681615838,
-  "closed_at":null,
-  "created_at":1574837626
+  "close_by": 1681615838,
+  "closed_at": null,
+  "created_at": 1574837626
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Create static/dynamic qr
+
 ```py
 client.virtual_account.create({
   receivers: {
@@ -164,15 +169,16 @@ client.virtual_account.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| receivers*    | array      | Array that defines what receivers are available for this Virtual Account                        |
-| description  | string      | A brief description of the payment.   |
-| customer_id  | string      | Unique identifier of the customer to whom the virtual account must be tagged.                    |
-| amount_expected  | integer   | The maximum amount you expect to receive in this virtual account. Pass `69999` for ₹699.99.   |
-| notes       | object | All keys listed [here](https://razorpay.com/docs/payments/payments/payment-methods/bharatqr/api/#create) are supported   |
+| Name            | Type    | Description                                                                                                            |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| receivers\*     | array   | Array that defines what receivers are available for this Virtual Account                                               |
+| description     | string  | A brief description of the payment.                                                                                    |
+| customer_id     | string  | Unique identifier of the customer to whom the virtual account must be tagged.                                          |
+| amount_expected | integer | The maximum amount you expect to receive in this virtual account. Pass `69999` for ₹699.99.                            |
+| notes           | object  | All keys listed [here](https://razorpay.com/docs/payments/payments/payment-methods/bharatqr/api/#create) are supported |
 
 **Response:**
+
 ```json
 {
   "id": "va_4xbQrmEoA5WJ0G",
@@ -199,40 +205,45 @@ client.virtual_account.create({
   "created_at": 1607938184
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch virtual account by id
+
 ```py
 client.virtual_account.fetch(virtualId)
 ```
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| virtualId*          | string      | The id of the virtual to be updated  |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| virtualId\* | string | The id of the virtual to be updated |
 
 **Response:**
 
-For fetch virtual account by id response please click [here](https://razorpay.com/docs/api/smart-collect/#fetch-a-virtual-account-by-id)
+For fetch virtual account by id response please click
+[here](https://razorpay.com/docs/api/smart-collect/#fetch-a-virtual-account-by-id)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch all virtual account
+
 ```py
 client.virtual_account.all(options)
 ```
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| from  | timestamp | Timestamp, in seconds, from when virtual accounts are to be fetched.  |
-| to    | timestamp | Timestamp, in seconds, till when virtual accounts are to be fetched. |
-| count | integer   | Number of virtual accounts to be fetched. The default value is 10 and the maximum value is 100. |
-| skip  | integer   | Number of records to be skipped while fetching the virtual accounts. This can be used for pagination, in combination with `count`.  |
+| Name  | Type      | Description                                                                                                                        |
+| ----- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| from  | timestamp | Timestamp, in seconds, from when virtual accounts are to be fetched.                                                               |
+| to    | timestamp | Timestamp, in seconds, till when virtual accounts are to be fetched.                                                               |
+| count | integer   | Number of virtual accounts to be fetched. The default value is 10 and the maximum value is 100.                                    |
+| skip  | integer   | Number of records to be skipped while fetching the virtual accounts. This can be used for pagination, in combination with `count`. |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -268,24 +279,27 @@ client.virtual_account.all(options)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch payments for a virtual account
+
 ```py
 client.virtual_account.payments(virtualId,options)
 ```
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| virtualId*  | string    | The id of the virtual to be updated  |
-| from  | timestamp | timestamp after which the payments were created  |
-| to    | timestamp | timestamp before which the payments were created |
-| count | integer   | number of payments to fetch (default: 10)        |
-| skip  | integer   | number of payments to be skipped (default: 0)    |
+| Name        | Type      | Description                                      |
+| ----------- | --------- | ------------------------------------------------ |
+| virtualId\* | string    | The id of the virtual to be updated              |
+| from        | timestamp | timestamp after which the payments were created  |
+| to          | timestamp | timestamp before which the payments were created |
+| count       | integer   | number of payments to fetch (default: 10)        |
+| skip        | integer   | number of payments to be skipped (default: 0)    |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -326,20 +340,22 @@ client.virtual_account.payments(virtualId,options)
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch payment details using id and transfer method
+
 ```py
 client.payment.bank_transfer(paymentId)
 ```
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| virtualId*  | string    | The id of the virtual to be updated  |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| virtualId\* | string | The id of the virtual to be updated |
 
 **Response:**
+
 ```json
 {
   "id": "bt_Di5iqCElVyRlCb",
@@ -387,9 +403,11 @@ client.payment.bank_transfer(paymentId)
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Refund payments made to a virtual account
+
 ```py
 client.payment.refund(paymentId,{
   "amount": "100",
@@ -403,15 +421,16 @@ client.payment.refund(paymentId,{
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| paymentId*  | string    | The id of the payment to be updated  |
-|  amount       | integer      | The amount to be captured (should be equal to the authorized amount, in paise) |                       |
-|  speed        | string      | Here, it must be normal                |
-|  notes        | array       | A key-value pair                |
-|  receipt      | string      | A unique identifier provided by you for your internal reference. |
+| Name        | Type    | Description                                                                    |
+| ----------- | ------- | ------------------------------------------------------------------------------ | --- |
+| paymentId\* | string  | The id of the payment to be updated                                            |
+| amount      | integer | The amount to be captured (should be equal to the authorized amount, in paise) |     |
+| speed       | string  | Here, it must be normal                                                        |
+| notes       | array   | A key-value pair                                                               |
+| receipt     | string  | A unique identifier provided by you for your internal reference.               |
 
 **Response:**
+
 ```json
 {
   "id": "rfnd_FP8QHiV938haTz",
@@ -432,9 +451,11 @@ client.payment.refund(paymentId,{
   "speed_requested": "normal"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Add receiver to an existing virtual account
+
 ```py
 client.virtual_account.add_receiver(virtualId,{
   "types": [
@@ -448,18 +469,20 @@ client.virtual_account.add_receiver(virtualId,{
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| virtualId*  | string    | All parameters listed [here](https://razorpay.com/docs/api/payments/smart-collect-tpv#add-receiver-to-an-existing-virtual-account) are supported  |
-| types*  | object | The receiver type to be added to the virtual account. Possible values are `vpa` or `bank_account`  |
-| vpa    | object | This is to be passed only when `vpa` is passed as the receiver types. |
+| Name        | Type   | Description                                                                                                                                      |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| virtualId\* | string | All parameters listed [here](https://razorpay.com/docs/api/payments/smart-collect-tpv#add-receiver-to-an-existing-virtual-account) are supported |
+| types\*     | object | The receiver type to be added to the virtual account. Possible values are `vpa` or `bank_account`                                                |
+| vpa         | object | This is to be passed only when `vpa` is passed as the receiver types.                                                                            |
 
-**Response:**
-For add receiver to an existing virtual account response please click [here](https://razorpay.com/docs/api/smart-collect/#add-receiver-to-an-existing-virtual-account)
+**Response:** For add receiver to an existing virtual account response please
+click
+[here](https://razorpay.com/docs/api/smart-collect/#add-receiver-to-an-existing-virtual-account)
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Add an Allowed Payer Account
+
 ```py
 client.virtual_account.add_allowed_player(virtualId,{
   "type": "bank_account",
@@ -472,87 +495,94 @@ client.virtual_account.add_allowed_player(virtualId,{
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| virtualId*  | string    | The id of the virtual to be updated  |
-| type*  | object | The receiver type to be added to the virtual account. Possible values are `vpa` or `bank_account`  |
-| bank_account*    | object | Indicates the bank account details such as `ifsc` and `account_number` |
+| Name           | Type   | Description                                                                                       |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------- |
+| virtualId\*    | string | The id of the virtual to be updated                                                               |
+| type\*         | object | The receiver type to be added to the virtual account. Possible values are `vpa` or `bank_account` |
+| bank_account\* | object | Indicates the bank account details such as `ifsc` and `account_number`                            |
 
 **Response:**
+
 ```json
 {
-  "id":"va_DlGmm7jInLudH9",
-  "name":"Acme Corp",
-  "entity":"virtual_account",
-  "status":"active",
-  "description":"Virtual Account created for Raftar Soft",
-  "amount_expected":null,
-  "notes":{
-    "project_name":"Banking Software"
+  "id": "va_DlGmm7jInLudH9",
+  "name": "Acme Corp",
+  "entity": "virtual_account",
+  "status": "active",
+  "description": "Virtual Account created for Raftar Soft",
+  "amount_expected": null,
+  "notes": {
+    "project_name": "Banking Software"
   },
-  "amount_paid":0,
-  "customer_id":"cust_CaVDm8eDRSXYME",
-  "receivers":[
+  "amount_paid": 0,
+  "customer_id": "cust_CaVDm8eDRSXYME",
+  "receivers": [
     {
-      "id":"ba_DlGmm9mSj8fjRM",
-      "entity":"bank_account",
-      "ifsc":"RATN0VAAPIS",
+      "id": "ba_DlGmm9mSj8fjRM",
+      "entity": "bank_account",
+      "ifsc": "RATN0VAAPIS",
       "bank_name": "RBL Bank",
-      "name":"Acme Corp",
-      "notes":[],
-      "account_number":"2223330099089860"
+      "name": "Acme Corp",
+      "notes": [],
+      "account_number": "2223330099089860"
     }
   ],
   "allowed_payers": [
     {
       "type": "bank_account",
-      "id":"ba_DlGmm9mSj8fjRM",
+      "id": "ba_DlGmm9mSj8fjRM",
       "bank_account": {
         "ifsc": "UTIB0000013",
         "account_number": "914010012345679"
       }
     }
   ],
-  "close_by":1681615838,
-  "closed_at":null,
-  "created_at":1574837626
+  "close_by": 1681615838,
+  "closed_at": null,
+  "created_at": 1574837626
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Delete an Allowed Payer Account
+
 ```py
 client.virtual_account.delete_allowed_player(virtualId,allowedPayersId)
 ```
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| virtualId*  | string    | The id of the virtual to be updated  |
-| allowedPayersId*  | string    | The id of the allowed payers to be updated  |
+| Name              | Type   | Description                                |
+| ----------------- | ------ | ------------------------------------------ |
+| virtualId\*       | string | The id of the virtual to be updated        |
+| allowedPayersId\* | string | The id of the allowed payers to be updated |
 
 **Response:**
+
 ```json
 {}
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Close virtual account
+
 ```py
 client.virtual_account.close(virtualId)
 ```
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| virtualId*  | string    | The id of the virtual to be updated  |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| virtualId\* | string | The id of the virtual to be updated |
 
-**Response:**
-For close virtual account response please click [here](https://razorpay.com/docs/api/smart-collect/#close-a-virtual-account)
--------------------------------------------------------------------------------------------------------
+**Response:** For close virtual account response please click
+[here](https://razorpay.com/docs/api/smart-collect/#close-a-virtual-account)
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/smart-collect/api/)**

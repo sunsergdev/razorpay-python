@@ -1,0 +1,125 @@
+[build-system]
+requires = ["setuptools>=80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "razorpay-py"
+version = "0.0.1"
+description = "An improved Razorpay python SDK"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Team Razorpay" },
+    { name = "DotMyStyle (Sunserg Technologies Pvt Ltd.)" },
+]
+dependencies = ["requests >=2.20"]
+keywords = ["razorpay", "payment", "gateway", "india"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/sunsergdev/razorpay-python"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["razorpay", "razorpay.resources"]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py312'
+lint.task-tags = ["TODO"]
+extend-exclude = ["**/tests/*"]
+lint.select = [
+    "A",      # flake8-builtins
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "C901",   # mccabe
+    "D",      # pydocstyle
+    "DJ",     # flake8-django
+    "E",      # pycodestyle
+    "EM",     # flake8-errmsg
+    "F",      # pyflakes
+    "I",      # isort
+    "ISC003", # flake8-implicit-str-concat
+    "PIE",    # flake8-pie
+    "PL",     # pylint
+    "PT",     # flake8-pytest-style
+    "RET",    # flake8-return
+    "RUF",    # Ruff-specific
+    "T20",    # flake8-print
+    "UP",     # pyupgrade
+    "S",      # flake8-bandit
+]
+
+lint.ignore = [
+    # Ignore missing docstring in __init__
+    "D107",
+
+    # TODO:
+    # "D400",
+    # "B006",
+
+    # Ignore due to formatting: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "COM812",
+    "COM819",
+    "D206",
+    "D300",
+    "E111",
+    "E114",
+    "E117",
+    "Q000",
+    "Q001",
+    "Q002",
+    "W191"
+]
+
+[tool.ruff.lint.flake8-builtins]
+builtins-allowed-modules = ["logging", "types", "selectors", "collections"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["D"]
+"**/tests/**.py" = ["D", "S311"]
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+mark-parentheses = false
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+[tool.ruff.lint.isort]
+known-first-party = ["razorpay"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.isort]
+profile = "black"
+atomic = true
+import_heading_stdlib = "Standard library imports"
+import_heading_firstparty = "Razorpay SDK imports"
+import_heading_thirdparty = "Other third-party library imports"
+import_heading_localfolder = "Razorpay SDK local imports"
+known_first_party = ["razorpay"]
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"

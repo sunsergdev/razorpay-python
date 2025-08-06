@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientPaymentLink(ClientTestCase):
 
     def setUp(self):
         super(TestClientPaymentLink, self).setUp()
-        self.base_url = '{}/payment_links'.format(self.base_url)
+        self.base_url = f'{self.base_url}/payment_links'
     
     @responses.activate
     def test_payment_link_create(self):

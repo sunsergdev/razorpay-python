@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientQrcode(ClientTestCase):
 
     def setUp(self):
         super(TestClientQrcode, self).setUp()
-        self.base_url = '{}/payments/qr_codes'.format(self.base_url)
+        self.base_url = f'{self.base_url}/payments/qr_codes'
         self.plan_id = 'qr_IAgePI1GuSMTFN'
 
     @responses.activate

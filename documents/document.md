@@ -14,12 +14,13 @@ x = client.document.create({
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| file*  | string | The URL generated once the business proof document is uploaded. |
-| purpose  | string  | Possible value is `dispute_evidence` |
+| Name    | Type   | Description                                                     |
+| ------- | ------ | --------------------------------------------------------------- |
+| file\*  | string | The URL generated once the business proof document is uploaded. |
+| purpose | string | Possible value is `dispute_evidence`                            |
 
 **Response:**
+
 ```json
 {
   "id": "doc_EsyWjHrfzb59Re",
@@ -31,7 +32,8 @@ x = client.document.create({
   "created_at": 1590604200
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch Document Information
 
@@ -43,11 +45,12 @@ client.document.fetch(documentId)
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| documentId  | string | The unique identifier of the document.  |
+| Name       | Type   | Description                            |
+| ---------- | ------ | -------------------------------------- |
+| documentId | string | The unique identifier of the document. |
 
 **Response:**
+
 ```json
 {
   "entity": "document",
@@ -60,9 +63,9 @@ client.document.fetch(documentId)
   "url": ""
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/documents)**

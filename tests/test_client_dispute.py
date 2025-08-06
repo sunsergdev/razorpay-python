@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientDispute(ClientTestCase):
 
     def setUp(self):
         super(TestClientDispute, self).setUp()
-        self.base_url = '{}/disputes'.format(self.base_url)
+        self.base_url = f'{self.base_url}/disputes'
 
     @responses.activate
     def test_dispute_fetch_all(self):

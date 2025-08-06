@@ -1,19 +1,20 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientCustomer(ClientTestCase):
 
     def setUp(self):
         super(TestClientCustomer, self).setUp()
-        self.base_url = '{}/customers'.format(self.base_url)
+        self.base_url = f'{self.base_url}/customers'
 
     @responses.activate
     def test_customer_fetch(self):
         result = mock_file('fake_customer')
-        url = '{}/{}'.format(self.base_url, self.customer_id)
+        url = f'{self.base_url}/{self.customer_id}'
 
         responses.add(responses.GET,
                       url,
@@ -40,7 +41,7 @@ class TestClientCustomer(ClientTestCase):
     def test_customer_edit(self):
         email = 'test@test.com'
         result = mock_file('fake_customer')
-        url = '{}/{}'.format(self.base_url, self.customer_id)
+        url = f'{self.base_url}/{self.customer_id}'
         responses.add(responses.PUT,
                       url,
                       status=200,

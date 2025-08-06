@@ -17,13 +17,13 @@ client.order.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| amount*          | integer | Amount of the order to be paid                                               |
-| currency*        | string  | Currency of the order. Currently only `INR` is supported.                      |
-| receipt         | string  | Your system order reference id.                                              |
-| notes           | object  | A key-value pair   |
-|partial_payment | boolean  | Indicates whether customers can make partial payments on the invoice . Possible values: true - Customer can make partial payments. false (default) - Customer cannot make partial payments. |
+| Name            | Type    | Description                                                                                                                                                                                 |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*        | integer | Amount of the order to be paid                                                                                                                                                              |
+| currency\*      | string  | Currency of the order. Currently only `INR` is supported.                                                                                                                                   |
+| receipt         | string  | Your system order reference id.                                                                                                                                                             |
+| notes           | object  | A key-value pair                                                                                                                                                                            |
+| partial_payment | boolean | Indicates whether customers can make partial payments on the invoice . Possible values: true - Customer can make partial payments. false (default) - Customer cannot make partial payments. |
 
 **Response:**
 
@@ -44,7 +44,7 @@ client.order.create({
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Create order (Third party validation)
 
@@ -64,14 +64,14 @@ client.order.create({
 
 **Parameters:**
 
-| Name            | Type    | Description                                                                  |
-|-----------------|---------|------------------------------------------------------------------------------|
-| amount*          | integer | Amount of the order to be paid                                               |
-| method        | string  | The payment method used to make the payment. If this parameter is not passed, customers will be able to make payments using both netbanking and UPI payment methods. Possible values is `netbanking` or `upi`|
-| currency*        | string  | Currency of the order. Currently only `INR` is supported.       |
-| receipt         | string  | Your system order reference id.                                              |
-| notes         | array      | A key-value pair  |
-|bank_account | array  | All keys listed [here](https://razorpay.com/docs/payments/third-party-validation/#step-2-create-an-order) are supported |
+| Name         | Type    | Description                                                                                                                                                                                                   |
+| ------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount\*     | integer | Amount of the order to be paid                                                                                                                                                                                |
+| method       | string  | The payment method used to make the payment. If this parameter is not passed, customers will be able to make payments using both netbanking and UPI payment methods. Possible values is `netbanking` or `upi` |
+| currency\*   | string  | Currency of the order. Currently only `INR` is supported.                                                                                                                                                     |
+| receipt      | string  | Your system order reference id.                                                                                                                                                                               |
+| notes        | array   | A key-value pair                                                                                                                                                                                              |
+| bank_account | array   | All keys listed [here](https://razorpay.com/docs/payments/third-party-validation/#step-2-create-an-order) are supported                                                                                       |
 
 **Response:**
 
@@ -92,7 +92,7 @@ client.order.create({
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
 ### Fetch all orders
 
@@ -102,17 +102,16 @@ client.order.all(option)
 
 **Parameters**
 
-| Name       | Type      | Description                                                  |
-|------------|-----------|--------------------------------------------------------------|
-| from       | timestamp | timestamp after which the orders were created              |
-| to         | timestamp | timestamp before which the orders were created             |
-| count      | integer   | number of orders to fetch (default: 10)                    |
-| skip       | integer   | number of orders to be skipped (default: 0)                |
-| authorized | boolean   | Orders for which orders are currently in authorized state. |
-| receipt    | string    | Orders with the provided value for receipt.                  |
-| expand[]   | string    |  Used to retrieve additional information about the payment. Possible value is `payments`,`payments.card`,`transfers` or `virtual_account` |
-| authorized       | boolean | Possible value is `0` or `1` |
-
+| Name       | Type      | Description                                                                                                                              |
+| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | timestamp | timestamp after which the orders were created                                                                                            |
+| to         | timestamp | timestamp before which the orders were created                                                                                           |
+| count      | integer   | number of orders to fetch (default: 10)                                                                                                  |
+| skip       | integer   | number of orders to be skipped (default: 0)                                                                                              |
+| authorized | boolean   | Orders for which orders are currently in authorized state.                                                                               |
+| receipt    | string    | Orders with the provided value for receipt.                                                                                              |
+| expand[]   | string    | Used to retrieve additional information about the payment. Possible value is `payments`,`payments.card`,`transfers` or `virtual_account` |
+| authorized | boolean   | Possible value is `0` or `1`                                                                                                             |
 
 **Response:**
 
@@ -138,18 +137,20 @@ client.order.all(option)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch particular order
 
 ```py
 client.order.fetch(orderId)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| orderId* | string | The id of the order to be fetched |
+| Name      | Type   | Description                       |
+| --------- | ------ | --------------------------------- |
+| orderId\* | string | The id of the order to be fetched |
 
 **Response:**
 
@@ -172,20 +173,23 @@ client.order.fetch(orderId)
   "created_at": 1654064215
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch payments for an order
 
 ```py
 client.order.payments(orderId)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| orderId* | string | The id of the order to be retrieve payment info |
+| Name      | Type   | Description                                     |
+| --------- | ------ | ----------------------------------------------- |
+| orderId\* | string | The id of the order to be retrieve payment info |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -232,7 +236,8 @@ client.order.payments(orderId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Update order
 
@@ -244,34 +249,38 @@ client.order.edit(orderId,{
   }
 })
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| orderId* | string | The id of the order to be retrieve payment info |
-| notes*   | object  | A key-value pair                    |
+| Name      | Type   | Description                                     |
+| --------- | ------ | ----------------------------------------------- |
+| orderId\* | string | The id of the order to be retrieve payment info |
+| notes\*   | object | A key-value pair                                |
 
 **Response:**
+
 ```json
 {
-  "id":"order_DaaS6LOUAASb7Y",
-  "entity":"order",
-  "amount":2200,
-  "amount_paid":0,
-  "amount_due":2200,
-  "currency":"INR",
-  "receipt":"Receipt #211",
-  "offer_id":null,
-  "status":"attempted",
-  "attempts":1,
-  "notes":{
-    "notes_key_1":"Tea, Earl Grey, Hot",
-    "notes_key_2":"Tea, Earl Grey… decaf."
+  "id": "order_DaaS6LOUAASb7Y",
+  "entity": "order",
+  "amount": 2200,
+  "amount_paid": 0,
+  "amount_due": 2200,
+  "currency": "INR",
+  "receipt": "Receipt #211",
+  "offer_id": null,
+  "status": "attempted",
+  "attempts": 1,
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
   },
-  "created_at":1572505143
+  "created_at": 1572505143
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### View RTO/Risk Reasons
 
 ```py
@@ -279,13 +288,15 @@ orderId = "order_DaaS6LOUAASb7Y"
 
 client.order.viewRtoReview(orderId)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| orderId* | string | The unique identifier of an order to access the fulfillment information. |
+| Name      | Type   | Description                                                              |
+| --------- | ------ | ------------------------------------------------------------------------ |
+| orderId\* | string | The unique identifier of an order to access the fulfillment information. |
 
 **Response:**
+
 ```json
 {
   "risk_tier": "high",
@@ -303,7 +314,8 @@ client.order.viewRtoReview(orderId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Update the Fulfillment Details
 
@@ -321,15 +333,17 @@ request = {
 
 client.order.editFulfillment(orderId, request)
 ```
+
 **Parameters**
 
-| Name     | Type   | Description                         |
-|----------|--------|-------------------------------------|
-| orderId* | string | The unique identifier of an order to access the fulfillment information. |
+| Name           | Type   | Description                                                                                                                                                                             |
+| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| orderId\*      | string | The unique identifier of an order to access the fulfillment information.                                                                                                                |
 | payment_method | string | Payment Method opted by the customer to complete the payment. Possible values is `upi`, `card`, `wallet`, `netbanking`, `cod`, `emi`, `cardless_emi`, `paylater`, `recurring`, `other`. |
-| shipping | object  | Contains the shipping data. [here](https://razorpay.com/docs/payments/magic-checkout/rto-intelligence/#step-3-update-the-fulfillment-details) are supported |
+| shipping       | object | Contains the shipping data. [here](https://razorpay.com/docs/payments/magic-checkout/rto-intelligence/#step-3-update-the-fulfillment-details) are supported                             |
 
 **Response:**
+
 ```json
 {
   "entity": "order.fulfillment",
@@ -342,14 +356,13 @@ client.order.editFulfillment(orderId, request)
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/orders/)**
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/orders/)**

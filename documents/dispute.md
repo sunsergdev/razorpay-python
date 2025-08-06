@@ -7,6 +7,7 @@ client.dispute.all()
 ```
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -44,7 +45,8 @@ client.dispute.all()
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch a Dispute
 
@@ -56,11 +58,12 @@ client.dispute.fetch(disputeId);
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| disputeId*  | string | The unique identifier of the dispute.  |
+| Name        | Type   | Description                           |
+| ----------- | ------ | ------------------------------------- |
+| disputeId\* | string | The unique identifier of the dispute. |
 
 **Response:**
+
 ```json
 {
   "id": "disp_AHfqOvkldwsbqt",
@@ -92,7 +95,8 @@ client.dispute.fetch(disputeId);
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch a Dispute
 
@@ -104,11 +108,12 @@ client.dispute.accept(disputeId);
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| disputeId*  | string | The unique identifier of the dispute.  |
+| Name        | Type   | Description                           |
+| ----------- | ------ | ------------------------------------- |
+| disputeId\* | string | The unique identifier of the dispute. |
 
 **Response:**
+
 ```json
 {
   "id": "disp_AHfqOvkldwsbqt",
@@ -140,7 +145,9 @@ client.dispute.accept(disputeId);
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
+
 ### Contest a Dispute
 
 ```py
@@ -170,13 +177,13 @@ client.dispute.contest(disputeId,{
 
 **Parameters:**
 
-| Name  | Type      | Description                                      |
-|-------|-----------|--------------------------------------------------|
-| disputeId*  | string | The unique identifier of the dispute.  |
-| amount  | integer | The amount being contested. If the contest amount is not mentioned, we will assume it to be a full dispute contest.  |
-| summary  | string | The explanation provided by you for contesting the dispute. It can have a maximum length of 1000 characters. |
-| shipping_proof  | array | List of document ids which serves as proof that the product was shipped to the customer at their provided address. It should show their complete shipping address, if possible. |
-| others  | array | All keys listed [here](https://razorpay.com/docs/api/disputes/contest) are supported |
+| Name           | Type    | Description                                                                                                                                                                     |
+| -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| disputeId\*    | string  | The unique identifier of the dispute.                                                                                                                                           |
+| amount         | integer | The amount being contested. If the contest amount is not mentioned, we will assume it to be a full dispute contest.                                                             |
+| summary        | string  | The explanation provided by you for contesting the dispute. It can have a maximum length of 1000 characters.                                                                    |
+| shipping_proof | array   | List of document ids which serves as proof that the product was shipped to the customer at their provided address. It should show their complete shipping address, if possible. |
+| others         | array   | All keys listed [here](https://razorpay.com/docs/api/disputes/contest) are supported                                                                                            |
 
 ```py
 # Use this API sample code for submit
@@ -191,6 +198,7 @@ client.dispute.contest(disputeId,{
 ```
 
 **Response:**
+
 ```json
 // Draft
 {
@@ -234,7 +242,7 @@ client.dispute.contest(disputeId,{
   }
 }
 
-//Submit 
+//Submit
 {
   "id": "disp_AHfqOvkldwsbqt",
   "entity": "dispute",
@@ -279,8 +287,9 @@ client.dispute.contest(disputeId,{
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
-**PN: * indicates mandatory fields**
-<br>
-<br>
+
+---
+
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/documents)**

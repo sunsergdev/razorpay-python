@@ -1,0 +1,21 @@
+# Code coverage measurement.
+coverage==7.9.2
+
+# Sort the imports.
+isort==6.0.1
+
+# Static type checking.
+mypy==1.16.1
+mypy-extensions==1.1.0
+
+# Manages git pre-commit hooks for various checks and lints.
+pre-commit==4.2.0
+
+# Reponses
+responses==0.25.7
+
+# Linter and formatter.
+ruff==0.12.4
+
+# Lint YAML files.
+yamllint==1.37.1

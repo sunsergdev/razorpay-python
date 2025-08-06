@@ -1,16 +1,17 @@
-import unittest
-import responses
 import json
+import unittest
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientPayment(ClientTestCase):
 
     def setUp(self):
         super(TestClientPayment, self).setUp()
-        self.base_url = '{}/payments'.format(self.base_url)
-        self.secondary_base_url = '{}/payments'.format(self.secondary_url)
+        self.base_url = f'{self.base_url}/payments'
+        self.secondary_base_url = f'{self.secondary_url}/payments'
 
     @responses.activate
     def test_payment_primary_url(self):

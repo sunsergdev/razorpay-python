@@ -25,12 +25,13 @@ client.payment.fetch(paymentId,{
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| paymentId*   | string      | The id of the payment to be fetched  |
-| transfers   | object     | All parameters listed [here](https://razorpay.com/docs/api/route/#create-transfers-from-payments) are supported |
+| Name        | Type   | Description                                                                                                     |
+| ----------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| paymentId\* | string | The id of the payment to be fetched                                                                             |
+| transfers   | object | All parameters listed [here](https://razorpay.com/docs/api/route/#create-transfers-from-payments) are supported |
 
 **Response:**
+
 ```json
 {
   "id": "pay_DJiaO3iqUZaZrO",
@@ -66,7 +67,8 @@ client.payment.fetch(paymentId,{
   "created_at": 1568822005
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Create transfers from order
 
@@ -108,14 +110,15 @@ client.order.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| amount*   | integer      | The transaction amount, in paise |
-| currency*   | string  | The currency of the payment (defaults to INR)  |
-|  receipt      | string      | A unique identifier provided by you for your internal reference. |
-| transfers   | object     | All parameters listed [here](https://razorpay.com/docs/api/route/#create-transfers-from-orders) are supported |
+| Name       | Type    | Description                                                                                                   |
+| ---------- | ------- | ------------------------------------------------------------------------------------------------------------- |
+| amount\*   | integer | The transaction amount, in paise                                                                              |
+| currency\* | string  | The currency of the payment (defaults to INR)                                                                 |
+| receipt    | string  | A unique identifier provided by you for your internal reference.                                              |
+| transfers  | object  | All parameters listed [here](https://razorpay.com/docs/api/route/#create-transfers-from-orders) are supported |
 
 **Response:**
+
 ```json
 {
   "id": "order_E9uTczH8uWPCyQ",
@@ -139,9 +142,7 @@ client.order.create({
         "branch": "Acme Corp Bangalore North",
         "name": "Gaurav Kumar"
       },
-      "linked_account_notes": [
-        "branch"
-      ],
+      "linked_account_notes": ["branch"],
       "on_hold": true,
       "on_hold_until": 1671222870
     },
@@ -153,16 +154,15 @@ client.order.create({
         "branch": "Acme Corp Bangalore South",
         "name": "Saurav Kumar"
       },
-      "linked_account_notes": [
-        "branch"
-      ],
+      "linked_account_notes": ["branch"],
       "on_hold": false,
       "on_hold_until": null
     }
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Direct transfers
 
@@ -176,13 +176,14 @@ client.transfer.create({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| accountId*   | string      | The id of the account to be fetched  |
-| amount*   | integer      | The amount to be captured (should be equal to the authorized amount, in paise) |
-| currency*   | string  | The currency of the payment (defaults to INR)  |
+| Name        | Type    | Description                                                                    |
+| ----------- | ------- | ------------------------------------------------------------------------------ |
+| accountId\* | string  | The id of the account to be fetched                                            |
+| amount\*    | integer | The amount to be captured (should be equal to the authorized amount, in paise) |
+| currency\*  | string  | The currency of the payment (defaults to INR)                                  |
 
 **Response:**
+
 ```json
 {
   "id": "trf_JnRRvcSbZb1VHN",
@@ -214,7 +215,8 @@ client.transfer.create({
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch transfer for a payment
 
@@ -224,11 +226,12 @@ client.payment.transfers(paymentId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| paymentId*   | string      | The id of the payment to be fetched  |
+| Name        | Type   | Description                         |
+| ----------- | ------ | ----------------------------------- |
+| paymentId\* | string | The id of the payment to be fetched |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -267,7 +270,8 @@ client.payment.transfers(paymentId)
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch transfer for an order
 
@@ -279,12 +283,13 @@ client.order.fetch(orderId, {
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| orderId*   | string      | The id of the order to be fetched  |
-| expand[]*   | string    | Supported value is `transfer`  |
+| Name       | Type   | Description                       |
+| ---------- | ------ | --------------------------------- |
+| orderId\*  | string | The id of the order to be fetched |
+| expand[]\* | string | Supported value is `transfer`     |
 
 **Response:**
+
 ```json
 {
   "id": "order_I7waiV9PUGADuv",
@@ -339,7 +344,8 @@ client.order.fetch(orderId, {
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch transfer
 
@@ -349,11 +355,12 @@ client.transfer.fetch(transferId)
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| transferId*   | string      | The id of the transfer to be fetched  |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| transferId\* | string | The id of the transfer to be fetched |
 
 **Response:**
+
 ```json
 {
   "id": "trf_I7waiajxgS5jWL",
@@ -386,7 +393,8 @@ client.transfer.fetch(transferId)
   }
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch transfers for a settlement
 
@@ -398,11 +406,12 @@ client.transfer.all({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| recipientSettlementId*   | string    | The recipient settlement id obtained from the settlement.processed webhook payload.  |
+| Name                    | Type   | Description                                                                         |
+| ----------------------- | ------ | ----------------------------------------------------------------------------------- |
+| recipientSettlementId\* | string | The recipient settlement id obtained from the settlement.processed webhook payload. |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -441,23 +450,25 @@ client.transfer.all({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch settlement details
 
 ```py
 client.transfer.all({
-  'expand[]':'recipient_settlement'  
+  'expand[]':'recipient_settlement'
 })
 ```
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| expand*   | string    | Supported value is `recipient_settlement`  |
+| Name     | Type   | Description                               |
+| -------- | ------ | ----------------------------------------- |
+| expand\* | string | Supported value is `recipient_settlement` |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -497,7 +508,8 @@ client.transfer.all({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Refund payments and reverse transfer from a linked account
 
@@ -510,13 +522,14 @@ client.payment.refund(paymentId,{
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| paymentId*   | string      | The id of the payment to be fetched  |
-| amount*   | integer      | The amount to be captured (should be equal to the authorized amount, in paise) |
-| reverse_all   | boolean    | Reverses transfer made to a linked account. Possible values:<br> * `True` - Reverses transfer made to a linked account.<br>* `False` - Does not reverse transfer made to a linked account.|
+| Name        | Type    | Description                                                                                                                                                                                |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| paymentId\* | string  | The id of the payment to be fetched                                                                                                                                                        |
+| amount\*    | integer | The amount to be captured (should be equal to the authorized amount, in paise)                                                                                                             |
+| reverse_all | boolean | Reverses transfer made to a linked account. Possible values:<br> _ `True` - Reverses transfer made to a linked account.<br>_ `False` - Does not reverse transfer made to a linked account. |
 
 **Response:**
+
 ```json
 {
   "id": "rfnd_JJFNlNXPHY640A",
@@ -536,7 +549,8 @@ client.payment.refund(paymentId,{
   "speed_requested": "normal"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Fetch payments of a linked account
 
@@ -548,11 +562,12 @@ client.payment.all({
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| X-Razorpay-Account   | string      | The linked account id to fetch the payments received by linked account |
+| Name               | Type   | Description                                                            |
+| ------------------ | ------ | ---------------------------------------------------------------------- |
+| X-Razorpay-Account | string | The linked account id to fetch the payments received by linked account |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -594,7 +609,8 @@ client.payment.all({
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Reverse transfers from all linked accounts
 
@@ -606,12 +622,13 @@ client.transfer.reverse(transferId,{
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| transferId*   | string      | The id of the transfer to be fetched  |
-| amount   | integer      | The amount to be captured (should be equal to the authorized amount, in paise) |
+| Name         | Type    | Description                                                                    |
+| ------------ | ------- | ------------------------------------------------------------------------------ |
+| transferId\* | string  | The id of the transfer to be fetched                                           |
+| amount       | integer | The amount to be captured (should be equal to the authorized amount, in paise) |
 
 **Response:**
+
 ```json
 {
   "id": "rfnd_JJFNlNXPHY640A",
@@ -631,9 +648,11 @@ client.transfer.reverse(transferId,{
   "speed_requested": "normal"
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Hold settlements for transfers
+
 ```py
 paymentId = "pay_00000000000001"
 
@@ -651,12 +670,13 @@ client.payment.transfer(paymentId,{
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| paymentId*   | string      | The id of the payment to be fetched  |
-| transfers   | array     | All parameters listed [here](https://razorpay.com/docs/api/route/#hold-settlements-for-transfers) are supported |
+| Name        | Type   | Description                                                                                                     |
+| ----------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| paymentId\* | string | The id of the payment to be fetched                                                                             |
+| transfers   | array  | All parameters listed [here](https://razorpay.com/docs/api/route/#hold-settlements-for-transfers) are supported |
 
 **Response:**
+
 ```json
 {
   "entity": "collection",
@@ -692,9 +712,11 @@ client.payment.transfer(paymentId,{
   ]
 }
 ```
--------------------------------------------------------------------------------------------------------
+
+---
 
 ### Modify settlement hold for transfers
+
 ```py
 client.transfer.edit(transferId,{
   "on_hold": True,
@@ -704,52 +726,52 @@ client.transfer.edit(transferId,{
 
 **Parameters:**
 
-| Name          | Type        | Description                                 |
-|---------------|-------------|---------------------------------------------|
-| transferId*   | string      | The id of the payment to be fetched  |
-| on_hold*   | boolean      | Possible values is `True` or `False`  |
-| on_hold_until   | integer      | Timestamp, in Unix, that indicates until when the settlement of the transfer must be put on hold |
+| Name          | Type    | Description                                                                                      |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| transferId\*  | string  | The id of the payment to be fetched                                                              |
+| on_hold\*     | boolean | Possible values is `True` or `False`                                                             |
+| on_hold_until | integer | Timestamp, in Unix, that indicates until when the settlement of the transfer must be put on hold |
 
 **Response:**
+
 ```json
 {
-    "entity": "collection",
-    "count": 1,
-    "items": [
-        {
-            "id": "trf_JhemwjNekar9Za",
-            "entity": "transfer",
-            "status": "pending",
-            "source": "pay_I7watngocuEY4P",
-            "recipient": "acc_HjVXbtpSCIxENR",
-            "amount": 100,
-            "currency": "INR",
-            "amount_reversed": 0,
-            "notes": [],
-            "linked_account_notes": [],
-            "on_hold": true,
-            "on_hold_until": null,
-            "recipient_settlement_id": null,
-            "created_at": 1655271313,
-            "processed_at": null,
-            "error": {
-                "code": null,
-                "description": null,
-                "reason": null,
-                "field": null,
-                "step": null,
-                "id": "trf_JhemwjNekar9Za",
-                "source": null,
-                "metadata": null
-            }
-        }
-    ]
+  "entity": "collection",
+  "count": 1,
+  "items": [
+    {
+      "id": "trf_JhemwjNekar9Za",
+      "entity": "transfer",
+      "status": "pending",
+      "source": "pay_I7watngocuEY4P",
+      "recipient": "acc_HjVXbtpSCIxENR",
+      "amount": 100,
+      "currency": "INR",
+      "amount_reversed": 0,
+      "notes": [],
+      "linked_account_notes": [],
+      "on_hold": true,
+      "on_hold_until": null,
+      "recipient_settlement_id": null,
+      "created_at": 1655271313,
+      "processed_at": null,
+      "error": {
+        "code": null,
+        "description": null,
+        "reason": null,
+        "field": null,
+        "step": null,
+        "id": "trf_JhemwjNekar9Za",
+        "source": null,
+        "metadata": null
+      }
+    }
+  ]
 }
 ```
 
--------------------------------------------------------------------------------------------------------
+---
 
-**PN: * indicates mandatory fields**
-<br>
-<br>
+**PN: \* indicates mandatory fields**
+
 **For reference click [here](https://razorpay.com/docs/api/route/#transfers/)**

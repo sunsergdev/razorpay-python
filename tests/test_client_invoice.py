@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientInvoice(ClientTestCase):
 
     def setUp(self):
         super(TestClientInvoice, self).setUp()
-        self.base_url = '{}/invoices'.format(self.base_url)
+        self.base_url = f'{self.base_url}/invoices'
 
     @responses.activate
     def test_invoice_fetch_all(self):
@@ -22,7 +23,7 @@ class TestClientInvoice(ClientTestCase):
     def test_invoice_fetch_all_with_options(self):
         count = 1
         result = mock_file('invoice_collection_with_one_invoice')
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.invoice.all({'count': count}), result)

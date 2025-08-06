@@ -1,16 +1,17 @@
-import responses
 import json
+
+import responses
 
 from razorpay.constants.url import URL
 
-from .helpers import mock_file, ClientTestCase
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientStakeholder(ClientTestCase):
 
     def setUp(self):
         super(TestClientStakeholder, self).setUp()
-        self.base_url = '{}/accounts'.format(self.base_url_v2)
+        self.base_url = f'{self.base_url_v2}/accounts'
         self.account_id = 'acc_GRWKk7qQsLnDjX'
         self.stakeholder_id = 'sth_MDdinTcycAkdK3'
 
@@ -18,7 +19,7 @@ class TestClientStakeholder(ClientTestCase):
     def test_stakeholder_create(self):
         init = mock_file('init_stakeholder')
         result = mock_file('fake_stakeholder')
-        url = '{}/{}{}'.format(self.base_url, self.account_id, URL.STAKEHOLDER)
+        url = f'{self.base_url}/{self.account_id}{URL.STAKEHOLDER}'
         responses.add(responses.POST,
                       url,
                       status=200,
@@ -31,8 +32,7 @@ class TestClientStakeholder(ClientTestCase):
     @responses.activate
     def test_stakeholder_fetch(self):
         result = mock_file('fake_stakeholder')
-        url = '{}/{}{}/{}'.format(self.base_url, self.account_id,
-                                   URL.STAKEHOLDER, self.stakeholder_id)
+        url = f'{self.base_url}/{self.account_id}{URL.STAKEHOLDER}/{self.stakeholder_id}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.stakeholder.fetch(
@@ -68,8 +68,7 @@ class TestClientStakeholder(ClientTestCase):
             }
         }
         result = mock_file('fake_stakeholder')
-        url = '{}/{}{}/{}'.format(self.base_url, self.account_id,
-                                   URL.STAKEHOLDER, self.stakeholder_id)
+        url = f'{self.base_url}/{self.account_id}{URL.STAKEHOLDER}/{self.stakeholder_id}'
         responses.add(responses.PATCH, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.stakeholder.edit(
@@ -78,8 +77,7 @@ class TestClientStakeholder(ClientTestCase):
     @responses.activate
     def test_stakeholder_all(self):
         result = mock_file('stakeholder_collection')
-        url = '{}/{}{}'.format(self.base_url,
-                                self.account_id, URL.STAKEHOLDER)
+        url = f'{self.base_url}/{self.account_id}{URL.STAKEHOLDER}'
         responses.add(responses.GET, url, status=200, body=json.dumps(result),
                       match_querystring=True)
         self.assertEqual(self.client.stakeholder.all(self.account_id), result)

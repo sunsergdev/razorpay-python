@@ -1,14 +1,15 @@
-import responses
 import json
 
-from .helpers import mock_file, ClientTestCase
+import responses
+
+from .helpers import ClientTestCase, mock_file
 
 
 class TestClientOrder(ClientTestCase):
 
     def setUp(self):
         super(TestClientOrder, self).setUp()
-        self.base_url = '{}/orders'.format(self.base_url)
+        self.base_url = f'{self.base_url}/orders'
 
     @responses.activate
     def test_order_all(self):
@@ -26,7 +27,7 @@ class TestClientOrder(ClientTestCase):
     def test_order_all_with_options(self):
         count = 1
         result = mock_file('order_collection_with_one_order')
-        url = '{}?count={}'.format(self.base_url, count)
+        url = f'{self.base_url}?count={count}'
         responses.add(responses.GET,
                       url,
                       status=200,
