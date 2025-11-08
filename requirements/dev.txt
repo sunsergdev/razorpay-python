@@ -15,7 +15,7 @@ pre-commit==4.3.0
 responses==0.25.8
 
 # Linter and formatter.
-ruff==0.12.4
+ruff==0.14.3
 
 # Lint YAML files.
 yamllint==1.37.1
