@@ -9,7 +9,7 @@ mypy==1.16.1
 mypy-extensions==1.1.0
 
 # Manages git pre-commit hooks for various checks and lints.
-pre-commit==4.2.0
+pre-commit==4.3.0
 
 # Reponses
 responses==0.25.7
