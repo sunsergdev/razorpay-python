@@ -4,8 +4,9 @@
   "commitMessagePrefix": ":arrow_up:",
   "forkProcessing": "enabled",
   "labels": ["type: Dependencies", "patch"],
-  "constraints": {
-    "python": "==3.12"
+  "pip_requirements": {
+    "enabled": true,
+    "managerFilePatterns": ["/(^|/)requirements/(.*)\\.txt$/"]
   },
   "packageRules": [
     {
