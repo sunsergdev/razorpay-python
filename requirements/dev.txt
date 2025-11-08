@@ -5,7 +5,7 @@ coverage==7.9.2
 isort==6.0.1
 
 # Static type checking.
-mypy==1.16.1
+mypy==1.18.2
 mypy-extensions==1.1.0
 
 # Manages git pre-commit hooks for various checks and lints.
