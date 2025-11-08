@@ -23,7 +23,7 @@ jobs:
     name: Static Checks
     runs-on: "ubuntu-24.04"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3
         uses: actions/setup-python@v4
         with:
@@ -43,7 +43,7 @@ jobs:
     name: Build
     runs-on: "ubuntu-24.04"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python 3
         uses: actions/setup-python@v4
@@ -81,7 +81,7 @@ jobs:
           # - "pypy-3.10"
     name: Test (${{ matrix.python_version }})
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python ${{ matrix.python_version }}
         uses: actions/setup-python@v4
         with:
@@ -101,7 +101,7 @@ jobs:
     needs: [build, test, lint]
     runs-on: "ubuntu-24.04"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
         with:
