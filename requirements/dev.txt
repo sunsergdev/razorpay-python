@@ -1,5 +1,5 @@
 # Code coverage measurement.
-coverage==7.9.2
+coverage==7.11.0
 
 # Sort the imports.
 isort==6.0.1
