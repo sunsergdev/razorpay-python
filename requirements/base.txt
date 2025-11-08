@@ -1,5 +1,5 @@
 # Library for publishing package to PyPI.
-twine == 6.1.0
+twine ==6.2.0
 
 # Build package
 build == 1.3.0
