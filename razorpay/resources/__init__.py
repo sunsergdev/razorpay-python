@@ -3,6 +3,7 @@ from .account import Account
 from .addon import Addon
 from .card import Card
 from .customer import Customer
+from .device_activity import DeviceActivity
 from .dispute import Dispute
 from .document import Document
 from .fund_account import FundAccount
@@ -30,6 +31,7 @@ __all__ = [
     "Addon",
     "Card",
     "Customer",
+    "DeviceActivity",
     "Dispute",
     "Document",
     "FundAccount",

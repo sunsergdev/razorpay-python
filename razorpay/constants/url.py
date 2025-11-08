@@ -33,3 +33,5 @@ class URL:
     WEBHOOK = "/webhooks"
     DOCUMENT = "/documents"
     DISPUTE = "/disputes"
+
+    DEVICE_ACTIVITY_URL = "/devices/activity"

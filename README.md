@@ -25,6 +25,8 @@ keys at <https://dashboard.razorpay.com/#/app/keys>.
 ```py
 import razorpay
 client = razorpay.Client(auth=("<YOUR_API_KEY>", "<YOUR_API_SECRET>"))
+
+client.enable_retry(True)  # Enable retry mechanism for failed API calls
 ```
 
 ## App Details
@@ -48,6 +50,10 @@ ensure that both app title and version are strings.
 - [Item](documents/items.md)
 
 - [Customer](documents/customer.md)
+
+- [Device Activity](documents/deviceActivity.md)
+
+- [POS Gateway Integration](documents/posGateway.md)
 
 - [Token](documents/token.md)
 
