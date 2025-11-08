@@ -12,7 +12,7 @@ mypy-extensions==1.1.0
 pre-commit==4.2.0
 
 # Reponses
-responses==0.25.7
+responses==0.25.8
 
 # Linter and formatter.
 ruff==0.12.4
