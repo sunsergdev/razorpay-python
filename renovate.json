@@ -1,21 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "pip-compile": {
-    "managerFilePatterns": ["/(^|/)requirements/[^/]+\\.txt$/"],
-    "lockFileMaintenance": {
-      "enabled": true,
-      "branchTopic": "pip-compile-refresh",
-      "commitMessageAction": "Refresh pip-compile outputs"
-    }
-  },
   "commitMessagePrefix": ":arrow_up:",
+  "forkProcessing": "enabled",
   "labels": ["type: Dependencies", "patch"],
-  "pip_requirements": {
-    "enabled": true,
-    "managerFilePatterns": ["/(^|/)requirements/ml/(.*)\\.txt$/"],
-    "ignoreDeps": ["torch", "numpy"]
-  },
   "constraints": {
     "python": "==3.12"
   },
@@ -26,29 +14,11 @@
       "minimumReleaseAge": "7 days"
     },
     {
-      "matchFileNames": ["requirements/development.in"],
+      "matchFileNames": ["requirements/base.txt"]
+    },
+    {
+      "matchFileNames": ["requirements/dev.txt"],
       "addLabels": ["dev"]
-    },
-    {
-      "matchFileNames": ["requirements/production.in"],
-      "addLabels": ["prod"]
-    },
-    {
-      "matchFileNames": ["requirements/base.in"],
-      "addLabels": ["base"]
-    },
-    {
-      "matchFileNames": ["(^|/)requirements/ml/(.*)\\.txt$"],
-      "addLabels": ["ml"]
-    },
-    {
-      "groupName": "mypy and django-stubs",
-      "matchPackageNames": ["mypy", "django-stubs", "django-stubs-ext"]
-    },
-    {
-      "groupName": "Ruff",
-      "matchPackageNames": ["ruff", "astral-sh/ruff-pre-commit"],
-      "minimumReleaseAge": "7 days"
     }
   ],
   "pre-commit": {
